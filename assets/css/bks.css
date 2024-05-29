@@ -1010,6 +1010,29 @@ pre code {
         -ms-flex-order: 13;
             order: 13;
   }
+          .portfolio img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid rgb(35, 31, 31);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio a {
+            display: block;
+            overflow: hidden;
+        }
+
+        .portfolio img:hover {
+            transform: scale(1.2);
+            transform-origin: center center;
+            border-radius: 10px;
+            border: 2px solid rgb(35, 31, 31);
+        }
+
+        .portfolio .col-md-4 {
+            margin-bottom: 15px;
+        }
   .order-sm-0 {
     -webkit-box-ordinal-group: 1;
     -webkit-order: 0;
