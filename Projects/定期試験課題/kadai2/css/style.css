@@ -1,0 +1,28 @@
+body{
+	text-align:center;
+	font-size:160%;
+	font-family: '游ゴシック','Yu Gothic',sans-serif;
+	display:grid;
+	place-items:center;
+	background:#000;
+}
+div{
+	background:#fff;
+	padding:1rem;
+	border-radius:1rem;
+	width:80%;
+	box-shadow:0 0 1rem rgba(0,0,0,.5);
+}
+button{
+	background: #0bd;
+	padding: 1rem;
+	margin-bottom: 2rem;
+	font-size: 1rem;
+	color: #fff;
+	border-radius: 8px;
+	border: 0;
+	cursor: pointer;
+}
+
+.bold{font-weight: bold;}
+.italic{font-style: italic;}
