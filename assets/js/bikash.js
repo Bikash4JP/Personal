@@ -47,3 +47,28 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert('Oops! There was a problem submitting your form');
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const maxWords = 150;
+
+    document.querySelectorAll(".blog-card .blog-content").forEach(content => {
+        const fullText = content.getAttribute("data-full-text");
+        const words = fullText.split(" ");
+        const truncatedText = words.slice(0, maxWords).join(" ") + '...';
+
+        if (words.length > maxWords) {
+            content.innerText = truncatedText;
+        }
+
+        const readMoreLink = content.nextElementSibling;
+        readMoreLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            if (readMoreLink.innerText.includes("Read more")) {
+                content.innerText = fullText;
+                readMoreLink.innerHTML = 'Read less <i class="ti-angle-double-right"></i>';
+            } else {
+                content.innerText = truncatedText;
+                readMoreLink.innerHTML = 'Read more <i class="ti-angle-double-right"></i>';
+            }
+        });
+    });
+});
