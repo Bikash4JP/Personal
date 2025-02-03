@@ -67,6 +67,61 @@ header nav ul li a {
     z-index: 1;
     opacity: 0.8; /* Optional, for a slight overlay effect */
 }
+/*reson section ----------------------------*/
+.reason {
+    text-align: center;
+    padding: 20px;
+}
+
+.reason h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.reason h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.column {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 22%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.column p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.column button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.column button:hover {
+    background-color: #0056b3;
+}
+/*reson end ----------------------------------*/
 
 /* Animation for sliding backgrounds */
 @keyframes slide-bg {
@@ -83,6 +138,155 @@ body {
     margin: 0;
     padding: 0;
 }
+/*imported from the last one -----------------------------------------------------------------*/
+.container {
+    width: 811px; /* Fixed width for all containers */
+    margin: auto; /* Center the container */
+}
+.merit, .new-container, .talent-container, .cost-container, .process-container, .support-container {
+    margin-top: 20px; /* Space between containers */
+    padding: 20px 80px; /* 20px padding top/bottom, 80px left/right */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* Height adjusts to content */
+}
+.container h1 {
+    margin-left: 100px;
+    position: relative;
+    margin-right: 0px;
+}
+.container h1 img {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.merit h2, .new-container h2, .talent-container h2, .cost-container h2, .process-container h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+.merit h2 .number, .new-container h2 .number, .talent-container h2 .number, .cost-container h2 .number, .process-container h2 .number {
+    font-size: 1.5em;
+}
+.merit div p, .new-container div p, .talent-container div p, .cost-container div p, .process-container div p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+.h1 img {
+    margin-right: 2px;
+}
+.cost-container {
+    background-color: #f9f9f9; /* Light gray background */
+}
+.process-container {
+    background-color: white; /* White background */
+}
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.step {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    border-left: 5px solid #003366;
+}
+.step-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 15px;
+    color: white;
+    min-width: 80px;
+    text-align: center;
+    background: #003366;
+    padding: 5px;
+    border-radius: 3px;
+}
+.step-content {
+    flex: 1;
+}
+.step-subtitle {
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+/* Styles for the 6th container (support-container) */
+.support-container {
+    background-color: white; /* White background */
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.button {
+    background: #d92525;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+.flow {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+}
+.flow-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #003366;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.flow-steps div {
+    text-align: center;
+    flex: 1;
+}
+.highlight {
+    background: #f79c00;
+    padding: 10px;
+    border-radius: 5px;
+}
+.support-section {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.support-title {
+    font-weight: bold;
+    background: #f79c00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.support-content {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.support-column {
+    flex: 1;
+    padding: 10px;
+}
+
+/*over merit -----------------------------------------------------------------------------*/
 
 .contact-container {
     display: flex;
