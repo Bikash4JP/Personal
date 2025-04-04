@@ -318,4 +318,34 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 	animation: jlpt-barRise 1s ease-out forwards;
 	animation-delay: calc(var(--jlpt-order) * 0.1s);
   }
+  /* Responsive Breakpoint */
+@media (max-width: 768px) {
+	.jlpt-container {
+	  flex-direction: column;
+	  gap: 20px;
+	}
+	
+	.jlpt-text-panel {
+	  order: 1;
+	  padding: 20px;
+	}
+	
+	.jlpt-graph-panel {
+	  order: 2;
+	  padding: 20px;
+	}
+	.jlpt-histogram {
+		height: 300px;
+	  }
+	  
+	  .jlpt-bar {
+		width: 40px;
+	  }
+	  
+	  .jlpt-x-label,
+	  .jlpt-value-labels div {
+		width: 40px;
+		font-size: 11px;
+	  }
+	}
   /* =============================================================JLPT Graph Ended =================================== */
