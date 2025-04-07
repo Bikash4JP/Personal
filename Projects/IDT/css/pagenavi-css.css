@@ -349,3 +349,84 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 	  }
 	}
   /* =============================================================JLPT Graph Ended =================================== */
+  /* last access image style start fromhrrre ============================================= */
+  .acc_img img {
+    height: 100px;
+    width: 450px;
+    object-fit: cover; /* Ensures the image fits within the specified dimensions */
+    transition: all 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.acc_img:hover img {
+    filter: brightness(0.3) sepia(0.3) hue-rotate(30deg); /* Light orange hover effect */
+}
+ /* image finished===============================================================================================
+  */
+  .about_c {
+    border: 2px rgb(99, 95, 95) solid;
+    border-radius: 50px;
+    text-align: center;
+    padding: 20px 20px;
+    background: linear-gradient(135deg, #1e90ff 0%, #ff8c00 100%);;
+}
+
+.title-section h2 {
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.title-section h2 span {
+    font-size: 28px;
+    color: hwb(0 91% 6%);
+}
+
+.contact-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.rb, .lb {
+    /* background-color: #ffffff; */
+    /* border: 1px solid #ddd; */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.rb button {
+    margin-top: 20px;
+    background-color: #ff6600;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rb button:hover {
+    background-color: #ff884d;
+}
+.phone-link {
+  text-decoration: underline;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  color: #000;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.phone-link:hover {
+  color: #063260;
+  transform: scale(1.05);
+}
+
+

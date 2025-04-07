@@ -5,3 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
       bar.style.setProperty('--jlpt-order', index);
     });
   });
+  // phone call js 
+  document.addEventListener("DOMContentLoaded", function () {
+    const phoneLink = document.querySelector(".phone-link");
+
+    phoneLink.addEventListener("click", function (e) {
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
+            alert("This link will try to start a phone call.");
+        }
+        // For mobile, the browser will handle `tel:` automatically.
+    });
+});
