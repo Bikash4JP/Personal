@@ -17,3 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // For mobile, the browser will handle `tel:` automatically.
     });
 });
+// mail redirectors Js =======================================================
+document.addEventListener("DOMContentLoaded", function () {
+  const mailButton = document.getElementById("mailBtn");
+
+  mailButton.addEventListener("click", function () {
+      window.location.href = "mailto:ueda@it-future.jp";
+  });
+});

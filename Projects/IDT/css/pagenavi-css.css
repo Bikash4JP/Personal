@@ -412,7 +412,8 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 }
 
 .rb button:hover {
-    background-color: #ff884d;
+  color: #333;
+    background-color: #4da3ff;
 }
 .phone-link {
   text-decoration: underline;
