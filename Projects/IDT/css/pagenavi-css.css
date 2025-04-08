@@ -428,5 +428,13 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
   color: #063260;
   transform: scale(1.05);
 }
+/* video style--------------------------------------------------------- */
+.video-border {
+  border: 3px solid rgb(140, 140, 189); /* 3px solid blue border */
+  display: block; /* Ensures the video takes up full width */
+  transition: border-color 0.3s ease; /* Smooth transition on hover */
+}
 
-
+.video-border:hover {
+  border-color: darkblue; /* Change border color on hover */
+}

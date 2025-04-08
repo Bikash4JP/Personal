@@ -1,0 +1,42 @@
+.towa-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center the container horizontally with some margin */
+}
+
+.towa-text-box {
+    padding: 20px;
+    width: 60%;
+    font-family: 'Arial', sans-serif; /* Replace with a Japanese font if needed */
+}
+
+.towa-text-box h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.towa-text-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.towa-divider {
+    width: 5px;
+    background-color: #e60012; /* Red border between text and logo */
+    height: 100px; /* Adjust height as needed */
+    margin: 0 20px; /* Space on either side of the divider */
+}
+
+.towa-logo img {
+    height: 50px; /* Adjust the height of the logo as needed */
+}
