@@ -2,9 +2,9 @@ const videoElement = document.getElementById('service-video');
     
     // Array of possible thumbnails
     const thumbnails = [
-        'thumbnail1.png', // Replace with actual thumbnail file paths
-        'thumbnail2.png',
-        'thumbnail3.png'
+        'images/thumbnail1.png', // Replace with actual thumbnail file paths
+        'images/thumbnail2.png',
+        'images/thumbnail3.png'
     ];
 
     // Set random thumbnail
