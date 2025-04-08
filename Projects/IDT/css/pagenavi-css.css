@@ -99,6 +99,28 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 .l-section.senryaku {
     padding: 5px 0; /* 10px padding top and bottom, 0 for left and right */
 }
+/* make it responsive from here ======================================== */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-logo-container,
+  .about-content {
+    flex: 100%;
+  }
+
+  .about-logo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    padding-top: 10px;
+  }
+}
+
 /* =====================================Sec Added ========================================== */
 .section-addd {
     font-family: 'MS Gothic', 'MS Mincho', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
