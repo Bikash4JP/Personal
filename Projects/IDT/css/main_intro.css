@@ -1,9 +1,10 @@
 .unique-intro9-section {
-    background-color: #b0d8de;
-    padding: 50px 0 0 0;
+    background:linear-gradient(rgb(238, 240, 243),rgb(172, 140, 81));
+    /* padding: 50px 0 0 0; */
     position: relative;
     overflow: hidden;
     margin-top: 50px;
+    height: 800px;
   }
   
   /* Ensure the body font applies globally, but we won't conflict with other sections */
@@ -39,7 +40,8 @@
   .unique-intro9-section .unique-sub-title {
     display: block;
     font-size: 18px;
-    color: #00a99d;
+    color: #53173c;
+    font-weight: bold;
     margin-bottom: 15px;
   }
   
@@ -77,6 +79,7 @@
   .unique-intro9-section .unique-intro9-image-wrap {
     position: relative;
     text-align: center;
+    margin-bottom: 0;
   }
   
   .unique-intro9-section .unique-intro9-image {
@@ -94,7 +97,9 @@
     opacity: 0.1;
     z-index: 1;
   }
-  
+  .unique-inner-img-two{
+    opacity: 0.8;
+  }
   /* Main Image (Person with Laptop) */
   .unique-intro9-section .unique-inner-img-two img {
     position: relative;
