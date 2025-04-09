@@ -12,6 +12,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    margin-top: 58px;
     justify-content: center;
   }
   

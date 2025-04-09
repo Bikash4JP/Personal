@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .box {
+      border: 1px solid #eee;
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #fafafa;
+    }
+
+    .box ul {
+      padding-left: 20px;
+      margin: 0 0 10px 0;
+    }
+
+    .tel {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .note {
+      background: #fdd;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #a00;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .required {
+      background-color: red;
+      color: white;
+      padding: 2px 6px;
+      font-size: 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    small {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .radio-group label {
+      display: block;
+      font-weight: normal;
+    }
+
+    .privacy-policy {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .privacy-policy a {
+      color: #c00;
+      text-decoration: underline;
+    }
+
+    .submit-btn {
+      text-align: center;
+    }
+
+    button {
+      background-color: #d99b98;
+      color: #fff;
+      padding: 12px 40px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c88783;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>お問い合わせ</h1>
+    <p class="description">下記は主なお問い合わせ例です。フォーム上のお問い合わせください。<br>
+      お客様からの声やご不明点があれば、お気軽にご連絡ください。</p>
+
+    <div class="box">
+      <ul>
+        <li>サービスに関するお問い合わせ</li>
+        <li>料金プランのご相談</li>
+        <li>その他のお問い合わせ</li>
+      </ul>
+      <p class="tel">📞 06-6644-1800</p>
+    </div>
+
+    <form class="form">
+      <div class="note">＊全項目ご記入ください。</div>
+
+      <div class="form-group">
+        <label>氏名 <span class="required">必須</span></label>
+        <input type="text" placeholder="例）上田　勝彦">
+      </div>
+
+      <div class="form-group">
+        <label>メールアドレス <span class="required">必須</span></label>
+        <input type="email" placeholder="例）example@example.jp">
+        <small>会社で使っているメールアドレスをご記入ください。</small>
+      </div>
+
+      <div class="form-group">
+        <label>電話番号</label>
+        <input type="text" placeholder="例）06-6644-1800">
+      </div>
+
+      <div class="form-group">
+        <label>会社名 <span class="required">必須</span></label>
+        <input type="text" placeholder="例）株式会社〇〇">
+      </div>
+
+      <div class="form-group">
+        <label>お問い合わせ内容 <span class="required">必須</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="inquiry"> サービスに関するお問い合わせ</label><br>
+          <label><input type="radio" name="inquiry"> 料金プランのご相談</label><br>
+          <label><input type="radio" name="inquiry"> その他のお問い合わせ</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>具体的な内容・お問い合わせ事項があればご記入ください。</label>
+        <textarea rows="5" placeholder="入力してください"></textarea>
+      </div>
+
+      <div class="form-group">
+        <p class="privacy-policy">
+          プライバシーポリシー <a href="privacy & policy Link" target="_blank">privacy policy </a>
+        </p>
+        <label><input type="checkbox"> 上記に同意します</label>
+      </div>
+
+      <div class="submit-btn">
+        <button type="submit">送信する</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
