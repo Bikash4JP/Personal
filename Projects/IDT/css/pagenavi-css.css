@@ -376,7 +376,6 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
     object-fit: cover; /* Ensures the image fits within the specified dimensions */
     transition: all 0.3s ease; /* Smooth transition for the hover effect */
 }
-
 .acc_img:hover img {
     filter: brightness(0.3) sepia(0.3) hue-rotate(30deg); /* Light orange hover effect */
 }
@@ -460,3 +459,4 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 .video-border:hover {
   border-color: darkblue; /* Change border color on hover */
 }
+

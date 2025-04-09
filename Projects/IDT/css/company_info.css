@@ -78,6 +78,44 @@ body {
 .info-content li{
     list-style-type:square; 
 }
+/* location css -------------------------------------------------------------------------------- */
+.location-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    /* background: linear-gradient(white,rgb(126, 126, 156)); */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling for each location div */
+.location {
+    width: 48%; /* Adjust width to fit side by side */
+    /* background-color: #b5e1df; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color:black;
+}
+
+.location p {
+    font-size: 1em;
+    color: hwb(0 1% 95%);
+    margin-bottom: 15px;
+}
+
+/* Styling for the map iframe */
+.location iframe {
+    width: 100%;
+    height: 300px; /* Adjusted height for better fit */
+    border: 0;
+    border-radius: 5px;
+}
 
 /* Optional: Make links blue and underlined */
 
@@ -95,5 +133,17 @@ body {
 
     .info-content {
         border-bottom: 2px solid #b0dde8;
+    }
+}
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .location-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .location {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
