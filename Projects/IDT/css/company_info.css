@@ -147,3 +147,44 @@ body {
         margin-bottom: 20px;
     }
 }
+@media (max-width: 768px) {
+      .title-section h2 {
+        font-size: 20px;
+    }
+
+    .title-section h2 span {
+        font-size: 24px;
+    }
+
+    .contact-boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rb, .lb {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 20px;
+    }
+
+    .rb button, .lb h1 {
+        font-size: 14px;
+    }
+
+    .phone-link {
+        font-size: large;
+    }
+    }
+    @media (max-width: 480px) {
+      .title-section h2 {
+          font-size: 18px;
+      }
+  
+      .title-section h2 span {
+          font-size: 22px;
+      }
+  
+      .contact-boxes {
+          gap: 20px;
+      }
+    }
