@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(white,rgb(211, 182, 129),rgb(108, 108, 138));
+}
 .towa-container {
     display: flex;
     align-items: center;
