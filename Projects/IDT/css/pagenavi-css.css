@@ -338,37 +338,7 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 	animation: jlpt-barRise 1s ease-out forwards;
 	animation-delay: calc(var(--jlpt-order) * 0.1s);
   }
-  /* Responsive Breakpoint */
-@media (max-width: 768px) {
-	.jlpt-container {
-	  flex-direction: column;
-	  gap: 20px;
-	}
-	
-	.jlpt-text-panel {
-	  order: 1;
-	  padding: 20px;
-	}
-	
-	.jlpt-graph-panel {
-	  order: 2;
-	  padding: 20px;
-	}
-	.jlpt-histogram {
-		height: 300px;
-	  }
-	  
-	  .jlpt-bar {
-		width: 40px;
-	  }
-	  
-	  .jlpt-x-label,
-	  .jlpt-value-labels div {
-		width: 40px;
-		font-size: 11px;
-	  }
-	}
-  /* =============================================================JLPT Graph Ended =================================== */
+
   /* last access image style start fromhrrre ============================================= */
   .acc_img img {
     height: 100px;
@@ -460,3 +430,72 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
   border-color: darkblue; /* Change border color on hover */
 }
 
+  /* Responsive Breakpoint */
+  @media (max-width: 768px) {
+    .jlpt-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .jlpt-text-panel {
+      order: 1;
+      padding: 20px;
+    }
+    
+    .jlpt-graph-panel {
+      order: 2;
+      padding: 20px;
+    }
+    .jlpt-histogram {
+      height: 300px;
+      }
+      
+      .jlpt-bar {
+      width: 40px;
+      }
+      
+      .jlpt-x-label,
+      .jlpt-value-labels div {
+      width: 40px;
+      font-size: 11px;
+      }
+      .title-section h2 {
+        font-size: 20px;
+    }
+
+    .title-section h2 span {
+        font-size: 24px;
+    }
+
+    .contact-boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rb, .lb {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 20px;
+    }
+
+    .rb button, .lb h1 {
+        font-size: 14px;
+    }
+
+    .phone-link {
+        font-size: large;
+    }
+    }
+    @media (max-width: 480px) {
+      .title-section h2 {
+          font-size: 18px;
+      }
+  
+      .title-section h2 span {
+          font-size: 22px;
+      }
+  
+      .contact-boxes {
+          gap: 20px;
+      }
+    /* =============================================================JLPT Graph Ended =================================== */
