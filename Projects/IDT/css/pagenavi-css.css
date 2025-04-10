@@ -364,6 +364,8 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
     font-size: 24px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
+    align-items: center;
+    text-align: center;
 }
 
 .title-section h2 span {
@@ -459,44 +461,36 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
       width: 40px;
       font-size: 11px;
       }
+    }
+    @media (max-width: 768px) {
       .title-section h2 {
-        font-size: 20px;
+        font-size: 20px;  /* Adjusted size for 768px screen width */
+      }
+    
+      .title-section h2 span {
+        font-size: 24px;  /* Adjusted span size */
+      }
     }
-
-    .title-section h2 span {
-        font-size: 24px;
-    }
-
-    .contact-boxes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .rb, .lb {
-        width: 100%;
-        max-width: 320px;
-        margin-bottom: 20px;
-    }
-
-    .rb button, .lb h1 {
-        font-size: 14px;
-    }
-
-    .phone-link {
-        font-size: large;
-    }
-    }
+    
     @media (max-width: 480px) {
       .title-section h2 {
-          font-size: 18px;
+        font-size: 18px !important;  /* Adjusted size for 480px screen width */
       }
-  
+    
       .title-section h2 span {
-          font-size: 22px;
-      }
-  
-      .contact-boxes {
-          gap: 20px;
+        font-size: 22px !important; /* Adjusted span size */
       }
     }
-    /* =============================================================JLPT Graph Ended =================================== */
+    @media (max-width: 768px) {
+      .contact-boxes {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+    
+      .rb, .lb {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin-bottom: 20px !important;
+      }
+    }
+    /* ============================================================JLPT Graph Ended =================================== */ 

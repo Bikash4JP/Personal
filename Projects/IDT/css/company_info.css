@@ -1,32 +1,88 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-    /* color: #000; */
 }
+
+/* Header (Reused from previous page) */
+.header-frame {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.header-top-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+#sp-menu-open {
+    display: none; /* Hidden on larger screens */
+}
+
+.header-menu {
+    width: 100%;
+}
+
+.acc-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contents, .cta {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.contents-item a, .cta-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.cta-item.tel {
+    display: none; /* Hide phone CTA on desktop */
+}
+
+/* Background Section */
 .bg {
-    background-image:url('../images/company_bg.jpg');
+    background-image: url('../images/company_bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 300px; /* Adjust height as needed */
+    height: 300px;
     position: relative;
     display: flex;
     align-items: center;
-    margin-top: 58px;
     justify-content: center;
-  }
-  
-  .bg .overlay {
-    /* background-color: rgba(0, 0, 0, 0.5); semi-transparent black overlay */
+    margin-top: 58px;
+}
+
+.bg .overlay {
     color: rgb(85, 39, 39);
     padding: 20px 40px;
-    font-size: 2rem;
+    font-size: clamp(20px, 5vw, 32px); /* Responsive font size */
     font-weight: bold;
     border-radius: 10px;
     text-align: center;
-  }
-  
-  
+}
+
+/* Company Info Section */
 .company-info {
     max-width: 900px;
     margin: 80px auto;
@@ -34,7 +90,7 @@ body {
 }
 
 .company-info h2 {
-    font-size: 28px;
+    font-size: clamp(20px, 5vw, 28px);
     font-weight: bold;
     text-align: center;
     margin-bottom: 40px;
@@ -44,7 +100,7 @@ body {
 .company-info h2::before {
     content: "COMPANY";
     display: block;
-    font-size: 12px;
+    font-size: clamp(10px, 2vw, 12px);
     color: #d42f2f;
     font-weight: bold;
     margin-bottom: 8px;
@@ -70,121 +126,164 @@ body {
 .info-content {
     flex: 1;
     line-height: 1.8;
-    border-bottom: 2px solid rgba(0, 123, 255, 0.3); /* Blue with 50% opacity */
-    font-family:'Times New Roman', Times, serif;
+    border-bottom: 2px solid rgba(0, 123, 255, 0.3);
+    font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    
 }
-.info-content li{
-    list-style-type:square; 
+
+.info-content li {
+    list-style-type: square;
 }
-/* location css -------------------------------------------------------------------------------- */
+
+/* Location Section */
 .location-section {
     display: flex;
     justify-content: space-between;
-    padding: 40px;
-    /* background: linear-gradient(white,rgb(126, 126, 156)); */
+    padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Styling for each location div */
 .location {
-    width: 48%; /* Adjust width to fit side by side */
-    /* background-color: #b5e1df; */
+    width: 48%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .location h3 {
-    font-size: 1.5em;
+    font-size: clamp(18px, 4vw, 24px);
     margin-bottom: 10px;
-    color:black;
+    color: black;
 }
 
 .location p {
-    font-size: 1em;
+    font-size: clamp(14px, 3vw, 16px);
     color: hwb(0 1% 95%);
     margin-bottom: 15px;
 }
 
-/* Styling for the map iframe */
 .location iframe {
     width: 100%;
-    height: 300px; /* Adjusted height for better fit */
+    height: 300px;
     border: 0;
     border-radius: 5px;
 }
 
-/* Optional: Make links blue and underlined */
+/* Contact Section (Reused from previous page) */
+.about_c .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-@media screen and (max-width: 600px) {
+.contact-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.rb, .lb {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Header */
+    #sp-menu-open {
+        display: block;
+    }
+
+    .acc-body {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+    }
+
+    .acc-body.active {
+        display: flex;
+    }
+
+    .contents, .cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-item.tel {
+        display: flex;
+    }
+
+    /* Background Section */
+    .bg {
+        height: 200px;
+    }
+
+    /* Company Info */
     .info-row {
         flex-direction: column;
     }
 
     .info-title {
         width: 100%;
-        border-bottom: none;
-        /* prevent line repetition on small screens */
-        text-align: center;
+        margin-bottom: 10px;
     }
 
-    .info-content {
-        border-bottom: 2px solid #b0dde8;
+    /* Location Section */
+    .location {
+        width: 100%;
+    }
+
+    .location iframe {
+        height: 250px;
+    }
+
+    /* Contact Section */
+    .contact-boxes {
+        flex-direction: column;
     }
 }
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .location-section {
-        flex-direction: column;
-        align-items: center;
+
+@media (max-width: 480px) {
+    .bg .overlay {
+        padding: 15px 20px;
+    }
+
+    .company-info {
+        margin: 40px auto;
     }
 
     .location {
-        width: 100%;
-        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .location iframe {
+        height: 200px;
+    }
+
+    .footer-col {
+        min-width: 150px;
     }
 }
-@media (max-width: 768px) {
-      .title-section h2 {
-        font-size: 20px;
-    }
-
-    .title-section h2 span {
-        font-size: 24px;
-    }
-
-    .contact-boxes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .rb, .lb {
-        width: 100%;
-        max-width: 320px;
-        margin-bottom: 20px;
-    }
-
-    .rb button, .lb h1 {
-        font-size: 14px;
-    }
-
-    .phone-link {
-        font-size: large;
-    }
-    }
-    @media (max-width: 480px) {
-      .title-section h2 {
-          font-size: 18px;
-      }
-  
-      .title-section h2 span {
-          font-size: 22px;
-      }
-  
-      .contact-boxes {
-          gap: 20px;
-      }
-    }

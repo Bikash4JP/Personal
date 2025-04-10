@@ -1,61 +1,121 @@
-body{
+/* Reset default margins and padding */
+* {
     margin: 0;
     padding: 0;
-    background: linear-gradient(white,rgb(211, 182, 129),rgb(108, 108, 138));
+    box-sizing: border-box;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(white, rgb(211, 182, 129), rgb(108, 108, 138));
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Responsiveness */
+.header-frame {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.header-top-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust logo size */
+    height: auto;
+}
+
+#sp-menu-open {
+    display: none; /* Hidden by default on larger screens */
+}
+
+.header-menu {
+    width: 100%;
+}
+
+.acc-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contents, .cta {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.contents-item a, .cta-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.cta-item.tel {
+    display: none; /* Hide phone CTA on desktop */
+}
+
+/* Towa Container */
 .towa-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 90%;
     max-width: 1000px;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; /* Center the container horizontally with some margin */
+    margin: 20px auto;
 }
 
 .towa-text-box {
     padding: 20px;
     width: 60%;
-    font-family: 'Arial', sans-serif; /* Replace with a Japanese font if needed */
 }
 
 .towa-text-box h1 {
-    font-size: 40px;
+    font-size: clamp(24px, 5vw, 40px); /* Responsive font size */
     font-weight: bold;
-    margin: 0 0 10px 0;
     color: #333;
 }
 
 .towa-text-box p {
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     line-height: 1.6;
     color: #333;
-    margin: 0;
 }
 
 .towa-divider {
     width: 5px;
-    background-color: #e60012; /* Red border between text and logo */
-    height: 100px; /* Adjust height as needed */
-    margin: 0 20px; /* Space on either side of the divider */
+    background-color: #e60012;
+    height: 100px;
+    margin: 0 20px;
 }
 
 .towa-logo img {
-    height: 50px; /* Adjust the height of the logo as needed */
-}.reason {
+    height: 50px;
+    width: auto;
+}
+
+/* Reason Section */
+.reason {
     text-align: center;
     padding: 20px;
 }
 
 .reason h1 {
-    font-size: 2em;
+    font-size: clamp(24px, 5vw, 32px);
     margin-bottom: 10px;
 }
 
 .reason h2 {
-    font-size: 1.5em;
+    font-size: clamp(18px, 4vw, 24px);
     margin-bottom: 20px;
 }
 
@@ -63,6 +123,7 @@ body{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .column {
@@ -71,17 +132,17 @@ body{
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
-    width: 22%;
+    width: clamp(200px, 23%, 300px); /* Responsive width */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .column h3 {
-    font-size: 1.2em;
+    font-size: clamp(16px, 3vw, 20px);
     margin-bottom: 10px;
 }
 
 .column p {
-    font-size: 0.9em;
+    font-size: clamp(12px, 2.5vw, 16px);
     margin-bottom: 20px;
 }
 
@@ -97,74 +158,43 @@ body{
 .column button:hover {
     background-color: #0056b3;
 }
-/*reson end ----------------------------------*/
 
-/* Animation for sliding backgrounds */
-@keyframes slide-bg {
-    0% { background-image: url('./images/bg1.jpg'); }
-    33.33% { background-image: url('./images/bg2.jpg'); }
-    66.66% { background-image: url('./images/bg3.jpg'); }
-    100% { background-image: url('./images/bg1.jpg'); }
-}
-/* ----------------------------contact start ////////////////////////////// */
-/* Section Title */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-}
-/*imported from the last one -----------------------------------------------------------------*/
+/* Containers */
 .container {
-    width: 811px; /* Fixed width for all containers */
-    margin: auto; /* Center the container */
+    width: 90%;
+    max-width: 811px;
+    margin: 0 auto;
 }
+
 .merit, .new-container, .talent-container, .cost-container, .process-container, .support-container {
-    margin-top: 20px; /* Space between containers */
-    padding: 20px 80px; /* 20px padding top/bottom, 80px left/right */
+    margin-top: 20px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: auto; /* Height adjusts to content */
 }
+
 .container h1 {
-    margin-left: 100px;
+    font-size: clamp(20px, 4vw, 28px);
+    text-align: center;
     position: relative;
-    margin-right: 0px;
 }
+
 .container h1 img {
     position: absolute;
-    right: 0px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    max-width: 50px;
 }
-.merit h2, .new-container h2, .talent-container h2, .cost-container h2, .process-container h2 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 1.2em;
-}
-.merit h2 .number, .new-container h2 .number, .talent-container h2 .number, .cost-container h2 .number, .process-container h2 .number {
-    font-size: 1.5em;
-}
-.merit div p, .new-container div p, .talent-container div p, .cost-container div p, .process-container div p {
-    font-size: 1em;
-    line-height: 1.5;
-}
-.h1 img {
-    margin-right: 2px;
-}
-.cost-container {
-    background-color: #f9f9f9; /* Light gray background */
-}
-.process-container {
-    background-color: white; /* White background */
-}
+
+/* Process Container */
 .steps {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
 .step {
     display: flex;
     align-items: center;
@@ -173,9 +203,10 @@ body {
     padding: 10px;
     border-left: 5px solid #003366;
 }
+
 .step-title {
     font-weight: bold;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     margin-right: 15px;
     color: white;
     min-width: 80px;
@@ -184,25 +215,26 @@ body {
     padding: 5px;
     border-radius: 3px;
 }
+
 .step-content {
     flex: 1;
 }
+
 .step-subtitle {
     font-weight: bold;
     color: #003366;
     margin-bottom: 5px;
 }
 
-/* Styles for the 6th container (support-container) */
-.support-container {
-    background-color: white; /* White background */
-}
+/* Support Container */
 .buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
     margin-bottom: 20px;
 }
+
 .button {
     background: #d92525;
     color: white;
@@ -212,11 +244,7 @@ body {
     cursor: pointer;
     border: none;
 }
-.flow {
-    background: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
-}
+
 .flow-steps {
     display: flex;
     justify-content: space-between;
@@ -225,223 +253,141 @@ body {
     color: white;
     padding: 10px;
     border-radius: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-.flow-steps div {
-    text-align: center;
-    flex: 1;
-}
-.highlight {
-    background: #f79c00;
-    padding: 10px;
-    border-radius: 5px;
-}
-.support-section {
-    background: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-.support-title {
-    font-weight: bold;
-    background: #f79c00;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 10px;
-}
+
 .support-content {
     display: flex;
     justify-content: space-between;
     background: white;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 20px;
 }
+
 .support-column {
     flex: 1;
     padding: 10px;
+    min-width: 200px;
 }
 
-/*over merit -----------------------------------------------------------------------------*/
+/* Contact Section */
+.about_c .container {
+    width: 90%;
+    max-width: 1200px;
+}
 
-.contact-container {
+.contact-boxes {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: 1200px;
-    margin-top: 70px;
-}
-
-.contact-form {
-    background: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 70%; /* 70% width for the contact form */
-}
-
-.contact-info {
-    background: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%; /* 30% width for the contact info */
-}
-
-.contact-info h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.contact-info p {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: #555;
-}
-
-.branch-office {
-    margin-top: 2rem;
-}
-
-.branch-office h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.branch-office p {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: #555;
-}
-
-.btn-submit {
-    background: linear-gradient(to right, #007bff, #0056b3);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-size: 1rem;
-}
-
-.btn-submit:hover {
-    opacity: 0.9;
-}
-
-iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    margin-top: 1rem;
-    border-radius: 8px;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #002f4b;
-    color: white;
-}
-
-/* -------------------------------About Section------------------------- */
-/* General body styling specific to the about section */
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  } */
-  
-  /* About Section Styling */
-  .about-section {
-    padding: 50px 20px;
-  }
-  
-  /* Card Container Styling */
-  .about-img-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: white;
-    text-align: center;
-    margin-bottom: 20px;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Image Styling */
-  .about-img-container img {
-    width: 100%;
-    object-fit: cover;
-    height: 200px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* Content Styling */
-  .about-content {
-    padding: 20px;
-  }
-  
-  /* Heading Styling */
-  .about-content h3 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Button Styling */
-  .about-btn {
-    display: inline-block;
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s;
-  }
-  
-  .about-btn:hover {
-    background-color: #333;
-    transform: scale(1.05);
-  }
-  
-  /* Responsive Grid Layout */
-  .about-card-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .about-img-container {
-      max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.rb, .lb {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Header */
+    #sp-menu-open {
+        display: block; /* Show hamburger menu on mobile */
     }
-  }
-  @media (max-width: 768px) {
-    .about-container {
-      flex-direction: column;
-      text-align: center;
+
+    .acc-body {
+        display: none; /* Hide menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
     }
-  
-    .about-logo-container,
-    .about-content {
-      flex: 100%;
+
+    .acc-body.active {
+        display: flex; /* Show when active */
     }
-  
-    .about-logo {
-      max-width: 200px;
-      margin: 0 auto;
+
+    .contents, .cta {
+        flex-direction: column;
+        width: 100%;
     }
-  
-    .about-content {
-      padding-top: 10px;
+
+    .cta-item.tel {
+        display: flex; /* Show phone CTA on mobile */
     }
-  }
-  
+
+    /* Towa Container */
+    .towa-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .towa-text-box {
+        width: 100%;
+    }
+
+    .towa-divider {
+        height: 5px;
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    /* Reason Section */
+    .column {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Containers */
+    .container {
+        width: 95%;
+    }
+
+    .container h1 img {
+        max-width: 30px;
+    }
+
+    /* Contact Section */
+    .contact-boxes {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .towa-text-box h1 {
+        font-size: 20px;
+    }
+
+    .towa-text-box p {
+        font-size: 14px;
+    }
+
+    .column {
+        padding: 15px;
+    }
+
+    .step-title {
+        min-width: 60px;
+        font-size: 14px;
+    }
+}
