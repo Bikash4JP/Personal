@@ -521,8 +521,8 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
           z-index: 2;
           width: 90%;
           padding: 20px;
-          text-align:end;
-          background: rgba(222, 179, 132, 0.3);
+          text-align:center;
+          background: rgba(119, 207, 218, 0.3);
           border-radius: 10px;
         }
       
