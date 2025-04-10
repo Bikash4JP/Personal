@@ -182,7 +182,7 @@ small {
 }
 
 button[type="submit"] {
-  background-color: #e42116;
+  background-color: #e46c16;
   color: #fff;
   padding: 12px 40px;
   border: none;
@@ -193,11 +193,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover:not(:disabled) {
-  background-color: #c11a11;
+  background-color: #116498;
 }
 
 button[type="submit"]:disabled {
-  background-color: #cccccc;
+  background-color: #3172b8;
   cursor: not-allowed;
 }
 

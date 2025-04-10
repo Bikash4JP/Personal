@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add to form data
             formData.append('inquiry_types', selectedInquiries);
-            // formData.append('_cc', 'bikash4jp@gmail.com');
+            formData.append('_cc', 'bikashthapa5830@gmail.com');
             formData.append('_subject', `【ITF問い合わせ】${formData.get('company')} - ${formData.get('name')}`);
             
             // Send to Formspree
