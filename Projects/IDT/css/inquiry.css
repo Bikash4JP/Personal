@@ -1,16 +1,19 @@
+/* Base Styles */
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  background: linear-gradient(rgb(239, 242, 243),rgb(226, 216, 201));
+  background: linear-gradient(rgb(239, 242, 243), rgb(226, 216, 201));
   margin: 0;
   padding: 0;
   color: #111111;
+  line-height: 1.6;
 }
 
+/* Header Background */
 .bg {
   background-image: url('../images/inquiry_main.jpg');
   background-size: cover;
   background-position: center;
-  height: 300px; /* Adjust height as needed */
+  height: 300px;
   position: relative;
   display: flex;
   align-items: center;
@@ -26,8 +29,10 @@ body {
   font-weight: bold;
   border-radius: 10px;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Main Container */
 .info_container {
   max-width: 1200px;
   margin: 40px auto;
@@ -35,10 +40,12 @@ body {
   box-sizing: border-box;
 }
 
+/* Typography */
 h1 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .description {
@@ -48,18 +55,20 @@ h1 {
   color: #555;
 }
 
+/* Form Box Styles */
 .box {
   border: 1px solid #eee;
   padding: 20px;
   margin-bottom: 30px;
   background-color: #fafafa;
-  align-items: center;
   text-align: center;
+  border-radius: 8px;
 }
 
 .box ul {
   padding-left: 20px;
   margin: 0 0 10px 0;
+  list-style-position: inside;
 }
 
 .tel {
@@ -67,17 +76,21 @@ h1 {
   font-weight: bold;
   margin-top: 10px;
   font-size: 16px;
+  color: #333;
 }
 
+/* Form Notice */
 .note {
-  background: #fdd;
+  background: rgb(228, 222, 222);
   padding: 10px;
   font-size: 14px;
   margin-bottom: 20px;
-  color: #a00;
+  color: rgb(20, 18, 18);
   text-align: center;
+  border-radius: 4px;
 }
 
+/* Form Elements */
 .form-group {
   margin-bottom: 20px;
 }
@@ -86,6 +99,7 @@ label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
+  color: #333;
 }
 
 .required {
@@ -97,46 +111,77 @@ label {
   border-radius: 4px;
 }
 
+/* Input Fields - Fixed missing comma */
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #5c5959;
   border-radius: 4px;
   font-family: 'Noto Sans JP', sans-serif;
   color: #211414;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: #e42116;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(228, 33, 22, 0.2);
 }
 
 textarea {
   resize: vertical;
+  min-height: 120px;
 }
 
 small {
   font-size: 12px;
-  color: #121010;
+  color: #666;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Radio Buttons */
+.radio-group {
+  margin: 10px 0;
 }
 
 .radio-group label {
   display: block;
   font-weight: normal;
+  margin: 8px 0;
+  cursor: pointer;
 }
 
+.radio-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Privacy Policy */
 .privacy-policy {
   font-size: 12px;
   margin-bottom: 10px;
+  color: #555;
 }
 
 .privacy-policy a {
-  color: #c00;
+  color: #e42116;
   text-decoration: underline;
 }
 
+/* Submit Button */
 .submit-btn {
   text-align: center;
+  margin-top: 30px;
 }
 
-button {
+button[type="submit"] {
   background-color: #e42116;
   color: #fff;
   padding: 12px 40px;
@@ -144,17 +189,23 @@ button {
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #c88783;
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #c11a11;
 }
 
-/* ===== Additional Styles for Form Functionality ===== */
-/* Success/Error Messages - matches your existing design */
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Messages */
 .success-message {
+  display: none;
   text-align: center;
-  padding: 40px;
+  padding: 30px;
   background: rgba(217, 155, 152, 0.1);
   border: 1px solid #d99b98;
   border-radius: 6px;
@@ -162,39 +213,24 @@ button:hover {
   margin: 20px 0;
 }
 
+.success-message h3 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
 .error-message {
-  text-align: center;
-  padding: 40px;
-  background: rgba(255, 0, 0, 0.1);
-  border: 1px solid #a00;
-  border-radius: 6px;
-  color: #111111;
-  margin: 20px 0;
+  color: #e74c3c;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: none;
 }
 
-.error-message ul {
-  list-style: none;
-  padding: 0;
-  color: #a00;
+/* Loading Animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-/* Disabled button state */
-button:disabled {
-  background-color: #cccccc !important;
-  cursor: not-allowed !important;
-}
-
-/* Form validation states */
-input:invalid, textarea:invalid {
-  border-color: #a00 !important;
-}
-
-input:valid, textarea:valid {
-  border-color: #5c5959 !important;
-}
-
-/* Loading state */
-.submit-btn .loading {
+.loading-spinner {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -206,113 +242,36 @@ input:valid, textarea:valid {
   vertical-align: middle;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Responsive adjustments for new elements */
-@media (max-width: 768px) {
-  .success-message,
-  .error-message {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .success-message,
-  .error-message {
-    padding: 15px;
-    font-size: 14px;
-  }
-}
 /* Responsive Design */
-
 @media (max-width: 1200px) {
-  .container {
+  .info_container {
     padding: 15px;
-    max-width: 100%;
   }
 
   .bg .overlay {
     font-size: 1.8rem;
     padding: 15px 30px;
   }
-
-  h1 {
-    font-size: 26px;
-  }
-
-  .description {
-    font-size: 13px;
-  }
-
-  .box {
-    padding: 15px;
-  }
-
-  .tel {
-    font-size: 15px;
-  }
-
-  .note {
-    font-size: 13px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 10px 30px;
-  }
 }
 
 @media (max-width: 768px) {
+  .bg {
+    height: 250px;
+    margin-top: 50px;
+  }
+
   .bg .overlay {
     font-size: 1.5rem;
     padding: 10px 20px;
   }
 
-  .container {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .description {
-    font-size: 12px;
+  .info_container {
+    margin: 20px auto;
+    padding: 15px;
   }
 
   .box {
     padding: 15px;
-  }
-
-  .tel {
-    font-size: 14px;
-  }
-
-  .note {
-    font-size: 12px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 10px 30px;
-  }
-  .success-message,
-  .error-message {
-    padding: 20px;
   }
 }
 
@@ -326,77 +285,36 @@ input:valid, textarea:valid {
     padding: 8px 15px;
   }
 
-  .container {
-    margin: 20px;
-    padding: 10px;
-  }
-
   h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
-  .description {
-    font-size: 10px;
-  }
-
-  .box {
+  .info_container {
+    margin: 15px;
     padding: 10px;
-  }
-
-  .tel {
-    font-size: 12px;
-  }
-
-  .note {
-    font-size: 10px;
   }
 
   input[type="text"],
   input[type="email"],
+  input[type="tel"],
   textarea {
-    font-size: 12px;
-  }
-
-  button {
-    font-size: 12px;
-    padding: 8px 20px;
-  }
-}
-
-/* About Section Responsiveness */
-.about_c {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.about_c .about-item {
-  width: 48%;
-}
-
-@media (max-width: 768px) {
-  .about_c {
-    flex-direction: column;
-  }
-
-  .about_c .about-item {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about_c {
     padding: 10px;
-  }
-
-  .about_c .about-item {
-    width: 100%;
-  }
-}
-.success-message,
-  .error-message {
-    padding: 15px;
     font-size: 14px;
   }
+
+  button[type="submit"] {
+    padding: 10px 30px;
+    font-size: 15px;
+  }
+}
+
+/* About Section */
+.about_c {
+  padding: 40px 0;
+}
+
+.about_c .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
