@@ -85,7 +85,7 @@ class FormHandler {
   
     async sendFormData(formData) {
       // Using Formspree
-      formData.append('_cc', 'bikash4jp@gmail.com');
+      formData.append('_cc', 'bikash4jp@gmail.com,another@email.com');
       formData.append('_subject', `新しいお問い合わせ: ${formData.get('company')}`);
       
       return fetch('https://formspree.io/f/xrbprkko', {
@@ -139,7 +139,7 @@ class FormHandler {
           '※このメールはフォーム送信失敗時に代替手段として送信されました'
         ].join('%0A');
         
-        window.location.href = `mailto:ueda@it-future.jp?subject=お問い合わせ: ${encodeURIComponent(formData.get('company'))}&body=${mailtoBody}`;
+        window.location.href = `mailto:bikash4jp@gamil.com?subject=お問い合わせ: ${encodeURIComponent(formData.get('company'))}&body=${mailtoBody}`;
       }
     }
   }
