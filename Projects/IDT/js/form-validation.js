@@ -85,7 +85,7 @@ class FormHandler {
   
     async sendFormData(formData) {
       // Using Formspree
-      formData.append('_cc', 'bikash4jp@gmail.com,another@email.com');
+      formData.append('_cc', 'bikash4jp@gmail.com');
       formData.append('_subject', `新しいお問い合わせ: ${formData.get('company')}`);
       
       return fetch('https://formspree.io/f/xrbprkko', {
