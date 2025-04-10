@@ -147,56 +147,57 @@
           <p class="tel">📞 06-6644-1800</p>
         </div>
     
-        <form class="form">
-          <div class="note">＊全項目ご記入ください。</div>
-    
-          <div class="form-group">
-            <label>氏名 <span class="required">必須</span></label>
-            <input type="text" placeholder="例）上田　勝彦">
+        <div class="container">
+            <form class="form" method="post" action="php/send-mail.php">
+              <div class="note">＊全項目ご記入ください。</div>
+        
+              <div class="form-group">
+                <label>氏名 <span class="required">必須</span></label>
+                <input type="text" name="name" placeholder="例）上田　勝彦" required>
+              </div>
+        
+              <div class="form-group">
+                <label>メールアドレス <span class="required">必須</span></label>
+                <input type="email" name="email" placeholder="例）example@example.jp" required>
+                <small>会社で使っているメールアドレスをご記入ください。</small>
+              </div>
+        
+              <div class="form-group">
+                <label>電話番号</label>
+                <input type="text" name="phone" placeholder="例）06-6644-1800">
+              </div>
+        
+              <div class="form-group">
+                <label>会社名 <span class="required">必須</span></label>
+                <input type="text" name="company" placeholder="例）株式会社〇〇" required>
+              </div>
+        
+              <div class="form-group">
+                <label>お問い合わせ内容 <span class="required">必須</span></label>
+                <div class="radio-group">
+                  <label><input type="radio" name="inquiry" value="サービスに関するお問い合わせ" required> サービスに関するお問い合わせ</label><br>
+                  <label><input type="radio" name="inquiry" value="料金プランのご相談"> 料金プランのご相談</label><br>
+                  <label><input type="radio" name="inquiry" value="その他のお問い合わせ"> その他のお問い合わせ</label>
+                </div>
+              </div>
+        
+              <div class="form-group">
+                <label>具体的な内容・お問い合わせ事項があればご記入ください。</label>
+                <textarea name="message" rows="5" placeholder="入力してください"></textarea>
+              </div>
+        
+              <div class="form-group">
+                <p class="privacy-policy">
+                  プライバシーポリシー <a href="privacy-policy.html" target="_blank">privacy policy</a>
+                </p>
+                <label><input type="checkbox" name="agree_policy" required> 上記に同意します</label>
+              </div>
+        
+              <div class="submit-btn">
+                <button type="submit" id="submit-button">送信する</button>
+              </div>
+            </form>
           </div>
-    
-          <div class="form-group">
-            <label>メールアドレス <span class="required">必須</span></label>
-            <input type="email" placeholder="例）example@example.jp">
-            <small>会社で使っているメールアドレスをご記入ください。</small>
-          </div>
-    
-          <div class="form-group">
-            <label>電話番号</label>
-            <input type="text" placeholder="例）06-6644-1800">
-          </div>
-    
-          <div class="form-group">
-            <label>会社名 <span class="required">必須</span></label>
-            <input type="text" placeholder="例）株式会社〇〇">
-          </div>
-    
-          <div class="form-group">
-            <label>お問い合わせ内容 <span class="required">必須</span></label>
-            <div class="radio-group">
-              <label><input type="radio" name="inquiry"> サービスに関するお問い合わせ</label><br>
-              <label><input type="radio" name="inquiry"> 料金プランのご相談</label><br>
-              <label><input type="radio" name="inquiry"> その他のお問い合わせ</label>
-            </div>
-          </div>
-    
-          <div class="form-group">
-            <label>具体的な内容・お問い合わせ事項があればご記入ください。</label>
-            <textarea rows="5" placeholder="入力してください"></textarea>
-          </div>
-    
-          <div class="form-group">
-            <p class="privacy-policy">
-              プライバシーポリシー <a href="privacy & policy Link" target="_blank">privacy policy </a>
-            </p>
-            <label><input type="checkbox"> 上記に同意します</label>
-          </div>
-    
-          <div class="submit-btn">
-            <button type="submit">送信する</button>
-          </div>
-        </form>
-      </div>    
       <!-- direct contacts ====================================================================================== -->
       
     <!-- ============================================== company info finished=================================== -->
@@ -281,6 +282,7 @@
 <script src="js/form.min.js"></script>
 <script src="js/main.min.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/form-validation.js"></script>
 <script type="text/javascript" src="js/front.min.js"></script>
 <script type="text/javascript" src="js/wp-embed.min.js"></script>
 

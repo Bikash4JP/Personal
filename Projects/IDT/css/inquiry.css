@@ -150,6 +150,81 @@ button:hover {
   background-color: #c88783;
 }
 
+/* ===== Additional Styles for Form Functionality ===== */
+/* Success/Error Messages - matches your existing design */
+.success-message {
+  text-align: center;
+  padding: 40px;
+  background: rgba(217, 155, 152, 0.1);
+  border: 1px solid #d99b98;
+  border-radius: 6px;
+  color: #111111;
+  margin: 20px 0;
+}
+
+.error-message {
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid #a00;
+  border-radius: 6px;
+  color: #111111;
+  margin: 20px 0;
+}
+
+.error-message ul {
+  list-style: none;
+  padding: 0;
+  color: #a00;
+}
+
+/* Disabled button state */
+button:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+}
+
+/* Form validation states */
+input:invalid, textarea:invalid {
+  border-color: #a00 !important;
+}
+
+input:valid, textarea:valid {
+  border-color: #5c5959 !important;
+}
+
+/* Loading state */
+.submit-btn .loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 768px) {
+  .success-message,
+  .error-message {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-message,
+  .error-message {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
 /* Responsive Design */
 
 @media (max-width: 1200px) {
@@ -235,6 +310,10 @@ button:hover {
     font-size: 14px;
     padding: 10px 30px;
   }
+  .success-message,
+  .error-message {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -316,3 +395,8 @@ button:hover {
     width: 100%;
   }
 }
+.success-message,
+  .error-message {
+    padding: 15px;
+    font-size: 14px;
+  }
