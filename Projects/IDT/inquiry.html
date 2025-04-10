@@ -134,7 +134,7 @@
     </section>
     <!-- main background overlay fished ================================================================================== -->
     <!-- main content============================================================================================== -->
-    <div class="container">
+    <div class="info_container">
         <h1>お問い合わせ</h1>
         <p class="description">下記は主なお問い合わせ例です。フォーム上のお問い合わせください。<br>
             お客様からの声やご不明点があれば、お気軽にご連絡ください。</p>
@@ -147,63 +147,68 @@
             </ul>
             <p class="tel">📞 06-6644-1800</p>
         </div>
-        <div class="container">
-            <form class="form" id="inquiryForm">
-              <div class="note">＊全項目ご記入ください。</div>
-          
-              <div class="form-group">
+        <form class="form" id="inquiryForm">
+            <div class="note">＊全項目ご記入ください。</div>
+
+            <div class="form-group">
                 <label>氏名 <span class="required">必須</span></label>
                 <input type="text" name="name" placeholder="例）上田 勝彦" required>
-              </div>
-          
-              <div class="form-group">
+                <div class="error-message" id="name-error"></div>
+            </div>
+
+            <div class="form-group">
                 <label>メールアドレス <span class="required">必須</span></label>
                 <input type="email" name="email" placeholder="例）example@example.jp" required>
                 <small>会社で使っているメールアドレスをご記入ください。</small>
-              </div>
-          
-              <div class="form-group">
-                <label>電話番号</label>
-                <input type="tel" name="phone" placeholder="例）06-6644-1800" required>
-              </div>
-          
-              <div class="form-group">
+                <div class="error-message" id="email-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label>電話番号 <span class="required">必須</span></label>
+                <input type="tel" name="phone" placeholder="例）0666441800" pattern="[0-9]{10,11}" required>
+                <div class="error-message" id="phone-error"></div>
+            </div>
+
+            <div class="form-group">
                 <label>会社名 <span class="required">必須</span></label>
                 <input type="text" name="company" placeholder="例）株式会社〇〇" required>
-              </div>
-          
-              <div class="form-group">
+                <div class="error-message" id="company-error"></div>
+            </div>
+
+            <div class="form-group">
                 <label>お問い合わせ内容 <span class="required">必須</span></label>
-                <div class="radio-group">
-                  <label><input type="radio" name="inquiry" value="サービスに関するお問い合わせ" required> サービスに関するお問い合わせ</label><br>
-                  <label><input type="radio" name="inquiry" value="料金プランのご相談"> 料金プランのご相談</label><br>
-                  <label><input type="radio" name="inquiry" value="その他のお問い合わせ"> その他のお問い合わせ</label>
+                <div class="radio-group" id="inquiry-group" required>
+                    <label><input type="radio" name="inquiry" value="サービスに関するお問い合わせ"> サービスに関するお問い合わせ</label><br>
+                    <label><input type="radio" name="inquiry" value="料金プランのご相談"> 料金プランのご相談</label><br>
+                    <label><input type="radio" name="inquiry" value="その他のお問い合わせ"> その他のお問い合わせ</label>
                 </div>
-              </div>
-          
-              <div class="form-group">
+                <div class="error-message" id="inquiry-error"></div>
+            </div>
+
+            <div class="form-group">
                 <label>具体的な内容・お問い合わせ事項があればご記入ください。</label>
                 <textarea name="message" rows="5" placeholder="入力してください"></textarea>
-              </div>
-          
-              <div class="form-group">
-                <p class="privacy-policy">
-                  プライバシーポリシー <a href="privacy-policy.html" target="_blank">privacy policy</a>
-                </p>
-                <label><input type="checkbox" name="agree" required> 上記に同意します</label>
-              </div>
-          
-              <div class="submit-btn">
-                <button type="submit" id="submitBtn" disabled>送信する</button>
-              </div>
-            </form>
-          
-            <div id="successMessage" class="success-message" style="display: none;">
-              <h3>送信が完了しました</h3>
-              <p>当社の代表者が折り返しご連絡いたしますので、少々お待ちください。</p>
-              <p id="redirectMessage">5秒後にトップページに自動的に戻ります。</p>
             </div>
-          </div>
+
+            <div class="form-group">
+                <p class="privacy-policy">
+                    プライバシーポリシー <a href="/privacy-policy.html" target="_blank">privacy policy</a>
+                </p>
+                <label><input type="checkbox" name="agree" id="agree-checkbox" required> 上記に同意します</label>
+                <div class="error-message" id="agree-error"></div>
+            </div>
+
+            <div class="submit-btn">
+                <button type="submit" id="submitBtn" disabled>送信する</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>送信が完了しました</h3>
+            <p>当社の代表者が折り返しご連絡いたしますので、少々お待ちください。</p>
+            <p id="redirectMessage">5秒後にトップページに自動的に戻ります。</p>
+        </div>
+    </div>
         <!-- direct contacts ====================================================================================== -->
 
         <!-- ============================================== company info finished=================================== -->
@@ -291,8 +296,5 @@
     <script src="js/form-validation.js"></script>
     <script type="text/javascript" src="js/front.min.js"></script>
     <script type="text/javascript" src="js/wp-embed.min.js"></script>
-
-
 </body>
-
 </html>
