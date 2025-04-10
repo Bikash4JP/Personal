@@ -110,32 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
             el.style.display = 'none';
             el.textContent = '';
         });
-        
-        // Validate required fields
-        requiredFields.forEach(field => {
-            const fieldName = field.name || field.id.replace('-checkbox', '');
-            const errorEl = errorMessages[fieldName];
-            
-            if (field.type === 'checkbox' && !field.checked) {
-                isValid = false;
-                errorEl.textContent = 'この項目への同意が必要です';
-                errorEl.style.display = 'block';
-            } 
-            else if (!field.value.trim()) {
-                isValid = false;
-                errorEl.textContent = 'この項目は必須です';
-                errorEl.style.display = 'block';
-            }
-        });
-        
-        // Validate radio group
-        const radioChecked = document.querySelector('input[name="inquiry"]:checked');
-        if (!radioChecked) {
-            isValid = false;
-            errorMessages.inquiry.textContent = 'お問い合わせ内容を選択してください';
-            errorMessages.inquiry.style.display = 'block';
-        }
-        
         // Validate email format
         const email = form.querySelector('input[type="email"]').value;
         if (email && !validateEmail(email)) {
