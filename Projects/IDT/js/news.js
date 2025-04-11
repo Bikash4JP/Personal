@@ -98,7 +98,7 @@ function renderNews(filteredData) {
                             <span class="posted-by">Posted By: ${item.postedBy}</span>
                         </div>
                         <div class="title">${item.title}</div>
-                        <div class="summary">${item.shortSummary} <a href="news.html?id=${newsData.indexOf(item)}">See More...</a></div>
+                        <div class="summary">${item.shortSummary} <a href="news.html?id=${newsData.indexOf(item)}">もっと見る...</a></div>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                     <div class="read-more-btn">
-                        <a href="news.html" class="read-more">Return to News Page</a>
+                        <a href="news.html" class="read-more">おしらせへ戻る</a>
                     </div>
                 `;
             }
