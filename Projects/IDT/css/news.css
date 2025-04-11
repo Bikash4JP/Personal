@@ -92,3 +92,11 @@ body {
 .news-content .summary {
     color: #333;
 }
+.news-content .summary a {
+    color: rgb(7, 119, 238); /* Tera blue color */
+    font-weight: bold;
+    text-decoration: none;
+}
+.news-content .summary a:hover {
+    text-decoration: underline;
+}
