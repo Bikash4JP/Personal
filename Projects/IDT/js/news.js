@@ -22,6 +22,28 @@ const newsData = [
         title: "『緑樹会』介護施設にて正社員募集を開始しました",
         summary: "ITFの提携先である介護施設『緑樹会（りょくじゅかい）』様にて、介護職の正社員募集がスタートしました。",
         image: "images/news3.jpg"
+    },
+    // / Naye random news entries
+    {
+        category: "イベント",
+        date: "2025-04-12",
+        title: "外国人材向けキャリアフェア2025を開催",
+        summary: "ITF主催のキャリアフェアが大阪で開催されます。ベトナム、インドネシア、フィリピンからの人材と日本企業をつなぐイベントです。",
+        image: "images/news4.jpg"
+    },
+    {
+        category: "連携",
+        date: "2025-04-15",
+        title: "タイ企業との新たなパートナーシップ締結",
+        summary: "ITFはタイのトップ人材紹介会社と提携し、タイ人エンジニアの日本企業への紹介を強化します。",
+        image: "images/news5.jpg"
+    },
+    {
+        category: "募集",
+        date: "2025-04-18",
+        title: "東京オフィスで通訳スタッフ募集開始",
+        summary: "英語と日本語のバイリンガル通訳者を募集開始。外国人材と企業のスムーズなコミュニケーションをサポートします。",
+        image: "images/news6.jpg"
     }
 ];
 
