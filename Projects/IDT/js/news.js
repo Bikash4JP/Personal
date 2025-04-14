@@ -82,30 +82,35 @@ function renderIndexNews() {
     });
 }
 
-function renderNews(filteredData) {
-    const newsList = document.getElementById("newsList");
+function renderIndexNews() {
+    const newsList = document.querySelector(".list ul");
     if (!newsList) return;
     newsList.innerHTML = "";
-    filteredData.forEach((item, index) => {
+    // Create a copy of newsData to avoid modifying the original array
+    const sortedNews = [...newsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const latestNews = sortedNews.slice(0, 3);
+    latestNews.forEach((item) => {
+        // Use the original newsData to find the index
+        const index = newsData.indexOf(newsData.find(news => news.title === item.title && news.date === item.date));
         newsList.innerHTML += `
-            <div class="news-item">
-                <div class="news-details">
-                    <div class="news-image" style="background-image: url(${item.image});"></div>
-                    <div class="news-content">
-                        <div class="tag">
-                            <span class="date">${item.date}</span>
-                            <span class="category">${item.category}</span>
-                            <span class="posted-by">Posted By: ${item.postedBy}</span>
-                        </div>
-                        <div class="title">${item.title}</div>
-                        <div class="summary">${item.shortSummary} <a href="news.html?id=${newsData.indexOf(item)}">もっと見る...</a></div>
-                    </div>
-                </div>
-            </div>
+            <li class="item">
+                <a href="news.html?id=${index}" title="${item.title}">
+                    <ul class="tag flex vcenter">
+                        <li class="category">${item.category}</li>
+                        <li class="date"><time datetime="${item.date}">${item.date.replace(/-/g, "/")}</time></li>
+                    </ul>
+                    <dl>
+                        <dt class="title"><div class="js-t8 line1">${item.title}</div></dt>
+                        <dd class="summary">
+                            <div class="pc js-t8 line1">${item.shortSummary}</div>
+                            <div class="sp js-t8 line2">${item.shortSummary}</div>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
         `;
     });
 }
-
 function filterNews() {
     const categoryFilter = document.getElementById("categoryFilter");
     const dateFilter = document.getElementById("dateFilter");
