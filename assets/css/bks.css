@@ -1169,46 +1169,6 @@ pre code {
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 767px) {
-  .portfolio-col {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  .portfolio-item {
-    width: 100%;
-    max-width: 300px;
-    height: 200px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .portfolio-col {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  .portfolio-item {
-    width: 100%;
-    max-width: 300px;
-    height: 200px;
-  }
-}
-
-@media (min-width: 992px) {
-  .portfolio-col {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
-
-  .portfolio-item {
-    width: 100%;
-    max-width: 300px;
-    height: 200px;
-  }
-}
 /* ------------------ Portfolio Image Styling ------------------ */
 
 
