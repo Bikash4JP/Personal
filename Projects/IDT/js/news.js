@@ -100,7 +100,9 @@ function renderNews(filteredData) {
         newsList.innerHTML += `
             <div class="news-item">
                 <div class="news-wrapper">
-                    <div class="news-image" style="background-image: url(${item.image});"></div>
+                    <div class="news-image">
+                        <img src="${item.image}" alt="${item.title}">
+                    </div>
                     <div class="news-content">
                         <div class="tag">
                             <span class="date">${item.date}</span>
@@ -124,7 +126,7 @@ function adjustImageHeights() {
     const newsItems = document.querySelectorAll(".news-item");
     newsItems.forEach(item => {
         const newsContent = item.querySelector(".news-content");
-        const newsImage = item.querySelector(".news-image");
+        const newsImage = item.querySelector(".news-image img"); // Now targeting the <img> tag
         if (newsContent && newsImage) {
             const contentHeight = newsContent.offsetHeight;
             // Set image height to match content height, but not more than 300px
@@ -157,7 +159,7 @@ function filterNews() {
     if (dateOrder === "desc") {
         filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
     } else if (dateOrder === "asc") {
-        filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+        filtered.sort((a, b) => new Date(a.date) - new Date(a.date));
     }
 
     renderNews(filtered);
@@ -196,8 +198,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const newsList = document.getElementById("newsList");
                 newsList.innerHTML = `
                     <div class="news-item">
-                        <div class="news-wrapper">
-                            <div class="news-image" style="background-image: url(${selectedNews.image});"></div>
+                        <div class="news-wrapper full-view-wrapper">
+                            <div class="news-image">
+                                <img src="${selectedNews.image}" alt="${selectedNews.title}">
+                            </div>
                             <div class="news-content">
                                 <div class="tag">
                                     <span class="date">${selectedNews.date}</span>

@@ -144,21 +144,43 @@ body {
 }
 
 .news-wrapper {
-    display: block;
+    display: flex;
+    gap: 20px; /* Space between image and content */
+    align-items: flex-start; /* Align items at the top */
 }
 
-.news-image {
-    width: 300px;
-    max-height: 300px; /* Maximum height */
-    background-size: cover;
-    background-position: center;
-    float: left;
+/* Full view specific styles */
+.full-view-wrapper {
+    display: block; /* Override flex for full view */
+}
+
+.full-view-wrapper .news-image {
+    float: left; /* Restore float for wrapping */
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
+.full-view-wrapper .news-content {
+    display: block; /* Ensure content wraps naturally */
+}
+
+.news-image {
+    flex: 0 0 300px; /* Fixed width for the image container */
+    max-height: 300px; /* Maximum height */
+    min-height: 150px; /* Ensure a minimum height for initial rendering */
+}
+
+.news-image img {
+    width: 100%; /* Ensure image takes full width of container */
+    max-height: 300px; /* Match max-height of parent */
+    min-height: 150px; /* Match min-height of parent */
+    object-fit: cover; /* Ensure image maintains aspect ratio */
+    object-position: center; /* Center the image */
+    display: block; /* Remove any extra space below the image */
+}
+
 .news-content {
-    display: block;
+    flex: 1; /* Take remaining space */
 }
 
 .news-content .tag {
@@ -211,17 +233,20 @@ body {
 
 @media (max-width: 768px) {
     .news-wrapper {
-        display: block;
+        flex-direction: column; /* Stack image and content vertically */
     }
     .news-image {
-        float: none;
-        width: 100%;
+        flex: 0 0 auto; /* Reset flex basis */
+        width: 100%; /* Full width on mobile */
         max-height: 200px; /* Adjust max-height for mobile */
-        margin-right: 0;
-        margin-bottom: 15px;
+        min-height: 100px; /* Adjust min-height for mobile */
+    }
+    .news-image img {
+        max-height: 200px; /* Match max-height for mobile */
+        min-height: 100px; /* Match min-height for mobile */
     }
     .news-content {
-        display: block;
+        flex: 1;
     }
     .news-content .title {
         font-size: 1.2em;
@@ -237,11 +262,24 @@ body {
         padding: 8px 15px;
         font-size: 0.9em;
     }
+
+    /* Full view specific styles for mobile */
+    .full-view-wrapper .news-image {
+        float: none; /* Remove float on mobile */
+        width: 100%; /* Full width on mobile */
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
 }
 
 @media (max-width: 480px) {
     .news-image {
         max-height: 150px; /* Adjust max-height for smaller screens */
+        min-height: 80px; /* Adjust min-height for smaller screens */
+    }
+    .news-image img {
+        max-height: 150px; /* Match max-height for smaller screens */
+        min-height: 80px; /* Match min-height for smaller screens */
     }
     .news-content .title {
         font-size: 1em;
