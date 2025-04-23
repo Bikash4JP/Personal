@@ -26,11 +26,11 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
     /* background-color: #ffffff; White background */
 
 .header-frame {
-    background-color: #37a4edb0; /* Ensures consistency */
+    background-color: #339cf2; /* Ensures consistency */
 }
 
 #header {
-    background-color: #1d5071; /* White background for the menu */
+    background-color: #339cf2; /* White background for the menu */
 }
 /* ------------------------------------------------Abou start from here -------------------------- */
 .about-container {
