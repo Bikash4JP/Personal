@@ -22,6 +22,7 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 .wp-pagenavi span.current {
 	font-weight: bold;
 }
+
 /* .header {
     /* background-color: #ffffff; White background */
 
@@ -123,7 +124,24 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
     padding-top: 10px;
   }
 }
+/* Example: Adjusting the breakpoint */
+@media (max-width: 992px) {
+  .header-menu { /* Hide desktop menu */
+    display: none;
+  }
+  #sp-menu-open { /* Show mobile menu button */
+    display: block;
+  }
+}
 
+@media (min-width: 993px) {
+  .header-menu { /* Show desktop menu */
+    display: flex;
+  }
+  #sp-menu-open { /* Hide mobile menu button */
+    display: none;
+  }
+}
 /* =====================================Sec Added ========================================== */
 .section-addd {
     font-family: 'MS Gothic', 'MS Mincho', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
