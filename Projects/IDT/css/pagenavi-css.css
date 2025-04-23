@@ -25,6 +25,9 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 
 /* .header {
     /* background-color: #ffffff; White background */
+    .header-frame{
+      background-color: #54ade9;
+    }
 
     @media (min-width: 769px) and (max-width: 1024px) {
       .header-menu .pc-flex {
