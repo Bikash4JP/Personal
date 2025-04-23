@@ -22,129 +22,106 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 .wp-pagenavi span.current {
 	font-weight: bold;
 }
-
 /* .header {
     /* background-color: #ffffff; White background */
-    .header-frame{
-      background-color: #4aa2dc;
-    }
 
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .header-menu .pc-flex {
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.2rem;
-      }
-    
-      .header-menu .contents,
-      .header-menu .cta {
-        flex-wrap: nowrap;
-        white-space: nowrap;
-      }
-    
-      .header-menu .contents-item a,
-      .header-menu .cta-item a {
-        font-size: 1.2rem;
-        padding: 0.4rem 0.8rem;
-      }
-    
-      .cta-item {
-        margin-left: 0.5rem;
-      }
-    
-      .header-frame .wrap {
-        flex-wrap: nowrap !important;
-        gap: 1rem;
-      }
-    
-      /* Hide horizontal scroll and prevent overflow */
-      .header-top-in,
-      .header-menu {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-    
-      .contents,
-      .cta {
-        min-width: max-content;
-      }
-    }
-    
-    /* Add a fallback fix for extreme cases */
-    .header-menu .contents-item,
-    .header-menu .cta-item {
-      flex-shrink: 0;
-    }
+.header-frame {
+    background-color: #37a4edb0; /* Ensures consistency */
+}
+
+#header {
+    background-color: #1d5071; /* White background for the menu */
+}
 /* ------------------------------------------------Abou start from here -------------------------- */
 .about-container {
-    display: flex;
-    align-items: center;
-    max-width: 900px;
-    padding: 20px;
-    margin: 0 auto;
-    gap: 40px;
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  padding: 20px;
+  margin: 0 auto;
+  gap: 40px;
 }
 
 /* Left Side - Logo (40%) */
 .about-logo-container {
-    flex: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-logo {
-    width: 100%;
-    max-width: 250px;
+  width: 100%;
+  max-width: 250px;
 }
 
 /* Right Side - Content (60%) */
 .about-content {
-    flex: 60%;
+  flex: 60%;
 }
 
 .about-title {
-    color: red;
-    font-size: 16px;
-    font-weight: bold;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .about-heading {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .about-heading span {
-    font-size: 18px;
-    color: gray;
+  font-size: 18px;
+  color: gray;
 }
 
 .about-description {
-    font-size:large;
-    font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-	/* color: #3684b8; */
+  font-size:large;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+/* color: #3684b8; */
 
 }
 
 .about-button {
-    background-color: white;
-    border: 2px solid #ddd;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s;
+  background-color: white;
+  border: 2px solid #ddd;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
 }
 
 .about-button:hover {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 .l-section.senryaku {
-    padding: 5px 0; /* 10px padding top and bottom, 0 for left and right */
+  padding: 5px 0; /* 10px padding top and bottom, 0 for left and right */
+}
+/* make it responsive from here ======================================== */
+@media (max-width: 768px) {
+.about-container {
+  flex-direction: column;
+  text-align: center;
+}
+
+.about-logo-container,
+.about-content {
+  flex: 100%;
+}
+
+.about-logo {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.about-content {
+  padding-top: 10px;
+}
 }
 /* make it responsive from here ======================================== */
 @media (max-width: 768px) {
@@ -167,23 +144,19 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
     padding-top: 10px;
   }
 }
-/* Example: Adjusting the breakpoint */
-@media (max-width: 992px) {
-  .header-menu { /* Hide desktop menu */
-    display: none;
-  }
-  #sp-menu-open { /* Show mobile menu button */
-    display: block;
-  }
+/* Solution --------------------------------------------------------------------------------- */
+h1.solution{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:bolder;
+  font-size:x-large;
+  color: #262323;
+  text-decoration: underline;
 }
-
-@media (min-width: 993px) {
-  .header-menu { /* Show desktop menu */
-    display: flex;
-  }
-  #sp-menu-open { /* Hide mobile menu button */
-    display: none;
-  }
+p.sl li{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: bold;
+  color: #000;
 }
 /* =====================================Sec Added ========================================== */
 .section-addd {
@@ -236,14 +209,14 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 .flow-content {
     flex: 1;
     padding: 8px 15px;
-    background-color: rgba(185, 222, 231, 0.9);
+    background:linear-gradient(35deg,skyblue,rgb(188, 222, 239));
     border-radius: 8px;
     color: #333;
     text-align: left;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: relative;
     line-height: 1.7;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: large;
     font-weight: bold;
 }
@@ -262,7 +235,9 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 
 /* =========================================================JLPT Graph Style ========================================== */
 #Languages {
-	font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+	font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: bold;
 	max-width: 1000px;
 	margin: 30px auto;
   }
@@ -288,6 +263,7 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 	text-align: center;
 	font-size: larger;
 	font-weight: bolder;
+  color: #063260;
   }
   
   .jlpt-text-content {
@@ -295,21 +271,17 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
   }
   
   .jlpt-heading {
-	color: #167ce3;
+	color: #2c3e50;
 	margin-bottom: 15px;
 	text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: xx-large;
+  color: royalblue;
   font-weight: bolder;
   }
   
   .jlpt-paragraph {
 	color: #34495e;
 	line-height: 1.6;
-	text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: large;
-  font-weight: bold;
+	text-align: left;
   }
   
   /* Right Graph Panel - 50% width (EXACTLY same as before) */
