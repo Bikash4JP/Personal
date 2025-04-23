@@ -26,13 +26,53 @@ http://wordpress.org/extend/plugins/wp-pagenavi/
 /* .header {
     /* background-color: #ffffff; White background */
 
-.header-frame {
-    background-color: #f6f7f7b0; /* Ensures consistency */
-}
-
-.header-menu {
-    background-color: #a4c6dd; /* White background for the menu */
-}
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .header-menu .pc-flex {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.2rem;
+      }
+    
+      .header-menu .contents,
+      .header-menu .cta {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+      }
+    
+      .header-menu .contents-item a,
+      .header-menu .cta-item a {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+      }
+    
+      .cta-item {
+        margin-left: 0.5rem;
+      }
+    
+      .header-frame .wrap {
+        flex-wrap: nowrap !important;
+        gap: 1rem;
+      }
+    
+      /* Hide horizontal scroll and prevent overflow */
+      .header-top-in,
+      .header-menu {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    
+      .contents,
+      .cta {
+        min-width: max-content;
+      }
+    }
+    
+    /* Add a fallback fix for extreme cases */
+    .header-menu .contents-item,
+    .header-menu .cta-item {
+      flex-shrink: 0;
+    }
 /* ------------------------------------------------Abou start from here -------------------------- */
 .about-container {
     display: flex;
