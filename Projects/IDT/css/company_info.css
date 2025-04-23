@@ -1,3 +1,14 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(white, rgb(233, 188, 104), rgb(76, 109, 217));
+}
 /* Header (Reused from previous page) */
 /* Background Section */
 .bg {
