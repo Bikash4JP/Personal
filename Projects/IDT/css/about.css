@@ -1,48 +1,3 @@
-/* Reset default margins and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background:linear-gradient(330deg,rgb(239, 232, 232),rgb(101, 167, 238),rgb(224, 172, 74))
-}
-
-#sp-menu-open {
-    display: none; /* Hidden by default on larger screens */
-}
-
-.header-menu {
-    width: 100%;
-}
-
-.acc-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contents, .cta {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.contents-item a, .cta-item a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    padding: 10px;
-}
-
-.cta-item.tel {
-    display: none; /* Hide phone CTA on desktop */
-}
-
 /* Towa Container */
 .towa-container {
     display: flex;
@@ -366,36 +321,6 @@ h3 {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
-    /* Header */
-    #sp-menu-open {
-        display: block;
-    }
-
-    .acc-body {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: white;
-        padding: 20px;
-    }
-
-    .acc-body.active {
-        display: flex;
-    }
-
-    .contents, .cta {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .cta-item.tel {
-        display: flex;
-    }
-
     /* Towa Container */
     .towa-container {
         flex-direction: column;
@@ -435,8 +360,6 @@ h3 {
     .contact-boxes {
         flex-direction: column;
     }
-}
-
 @media (max-width: 480px) {
     .towa-text-box h1 {
         font-size: 20px;
