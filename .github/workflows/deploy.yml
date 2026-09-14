@@ -28,17 +28,23 @@ jobs:
 
       - name: Sync site to S3
         run: |
+          # Long cache for everything except index.html, since assets aren't
+          # content-hashed — index.html must always revalidate so returning
+          # visitors pick up new asset references right after a deploy.
           aws s3 sync . "s3://${{ vars.S3_BUCKET_NAME }}" \
             --delete \
+            --cache-control "public, max-age=86400" \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude ".vscode/*" \
-            --exclude "README.md"
+            --exclude "README.md" \
+            --exclude "index.html"
 
-      # If the site sits behind CloudFront, set the CLOUDFRONT_DISTRIBUTION_ID
-      # repository variable and uncomment this step to bust the cache on deploy.
-      # - name: Invalidate CloudFront cache
-      #   run: |
-      #     aws cloudfront create-invalidation \
-      #       --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" \
-      #       --paths "/*"
+          aws s3 cp index.html "s3://${{ vars.S3_BUCKET_NAME }}/index.html" \
+            --cache-control "public, max-age=0, must-revalidate"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --paths "/*"
