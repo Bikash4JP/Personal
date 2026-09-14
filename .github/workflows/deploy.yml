@@ -1,0 +1,44 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # required to mint the OIDC token for AWS role assumption
+  contents: read
+
+concurrency:
+  group: "s3-deploy"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Sync site to S3
+        run: |
+          aws s3 sync . "s3://${{ vars.S3_BUCKET_NAME }}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude ".vscode/*" \
+            --exclude "README.md"
+
+      # If the site sits behind CloudFront, set the CLOUDFRONT_DISTRIBUTION_ID
+      # repository variable and uncomment this step to bust the cache on deploy.
+      # - name: Invalidate CloudFront cache
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #       --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" \
+      #       --paths "/*"

@@ -1,606 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <!-- Bootstrap CSS CDN -->
-    <title>Bikash Thapa| Personal</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- BootstrapStyles -->
-    <link rel="stylesheet" href="assets/css/bks.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bikash Thapa — Full-Stack Engineer</title>
+<meta name="description" content="Bikash Thapa — Full-Stack Engineer based in Tokyo. Laravel, React Native, Node.js, AI-driven development.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2322d3ee%22>B</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
+<body>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <header class="header">
-        <div class="container">
-            <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light"
-                        href="https://www.facebook.com/profile.php?id=100010032730011"><i class="ti-facebook"
-                            aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://x.com/Bikash4JP"><i
-                            class="ti-twitter" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="#"><i class="ti-google"
-                            aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light"
-                        href="https://www.instagram.com/thapabikash67/"><i class="ti-instagram"
-                            aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://github.com/Bikash4JP"><i
-                            class="ti-github" aria-hidden="true"></i></a></li>
-            </ul>
-            <div class="header-content">
-                <h4 class="header-subtitle">Hello, I am</h4>
-                <h1 class="header-title">Bikash Thapa</h1>
-                <h6 class="header-mono">IT エンジニア | <a href="https://it-future.jp/">株式会社アイティーエフ</a></h6>
-                <button class="btn btn-primary btn-rounded" onclick="printPdf('assets/Documents/cv.pdf')">
-                    <i class="ti-printer pr-2"></i>履歴書印刷
-                </button>
+<!-- Loading Screen -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-mark">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+      <rect x="2" y="2" width="60" height="60" rx="14" class="loader-frame"/>
+      <path d="M20 44V20h10a7 7 0 0 1 0 14h-6M24 34h7a6 6 0 0 1 0 12h-11" class="loader-glyph"/>
+    </svg>
+  </div>
+  <div class="loader-bar"><span></span></div>
+</div>
 
-                <script>
-                    function printPdf(pdfUrl) {
-                        var printWindow = window.open(pdfUrl, '_blank');
-                        printWindow.onload = function () {
-                            printWindow.print();
-                        };
-                    }
-                </script>
+<!-- Custom Cursor -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-            </div>
-        </div>
-    </header>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
-        <div class="container">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link">Resume</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav brand">
-                    <img src="assets/imgs/avatar.jpg" alt="" class="brand-img">
-                    <li class="brand-txt">
-                        <h5 class="brand-title">Bikash Thapa</h5>
-                        <div class="brand-subtitle">IT エンジニア | <a href="https://it-future.jp/">株式会社アイティーエフ</a></div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#blog" class="nav-link">Blog</a>
-                    </li>
-                    <li class="nav-item last-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!-- Nav -->
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">BT<span>.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" data-en="About" data-jp="自己紹介">About</a>
+      <a href="#skills" data-en="Skills" data-jp="スキル">Skills</a>
+      <a href="#projects" data-en="Projects" data-jp="実績">Projects</a>
+      <a href="#experience" data-en="Experience" data-jp="経歴">Experience</a>
+      <a href="#certifications" data-en="Certifications" data-jp="資格">Certifications</a>
+      <a href="#contact" data-en="Contact" data-jp="連絡先">Contact</a>
     </nav>
-    <div class="container-fluid">
-        <div id="about" class="row about-section">
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">私は誰ですか？</h3>
-                <span class="line mb-5"></span>
-                <h5 class="mb-3">スキルと専門知識／プログラミング以外の情熱／継続的な学びと成長</h5>
-                <p class="mt-20">
-                    私は横浜システム工学大学を卒業したITプロフェッショナルで、現在は株式会社アイティーエフでIT担当者として働いています。私の役割では、オンラインおよびIT関連の業務を管理し、ITFの公式ホームページ（<a
-                        href="https://it-future.jp/"
-                        target="_blank">株式会社アイティーエフ</a>）や採用サイトの分析と最適化に注力しています。これには、パフォーマンス向上、SEO対策、ユーザーエクスペリエンスの改善が含まれます。さらに、データベース管理を通じてデータの整合性とアクセス効率を向上させ、オンライン広告戦略を立案し、優秀な人材を検索して面接を行い、パートナー企業に紹介する業務も担当しています。コードのエラーを見つけて修正することに情熱を持ち、細部にまで気を配る姿勢を大切にしています。<br><br>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-en active">EN</span><span class="lang-sep">/</span><span class="lang-jp">日本語</span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-                    プログラミングの世界を超えて、新しい冒険と経験を求めて常に旅をしています。水泳やサッカーは趣味だけでなく、私の生活の中で重要な要素です。これらは、私が活動的でバランスの取れた生活を送るのに役立っています。<br><br>
+<main>
 
-                    自由な時間には、モバイルゲームを楽しんだり、オンラインリソースやYouTubeチャンネルを通じてプログラミングの広大な世界を探求したりしています。この知識欲が、IT分野でプロとしての力をさらに高め、ポジティブな影響を与えることができるようになるという私の野望を支えています。
-                </p>
-                <a href="assets/Documents/cv.pdf" download>
-                    <button class="btn btn-outline-danger">
-                        <i class="icon-down-circled2"></i>履歴書ダウンロード
-                    </button>
-                </a>
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">個人情報</h3>
-                <span class="line mb-5"></span>
-                <ul class="mt40 info list-unstyled">
-                    <li><span>生年月日</span> : 04/09/1998</li>
-                    <li><span>メール</span> : bikash4jp@gmail.com</li>
-                    <li><span>電話</span> : 090 86165634</li>
-                    <li><span>Line</span> : Bikash Thapa </li>
-                    <li><span>住所</span> : 神奈川県大和市中央３－７－１９.</li>
-                </ul>
-                <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link"
-                            href="https://www.facebook.com/profile.php?id=100010032730011"><i class="ti-facebook"
-                                aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://twitter.com/Bikash4JP"><i
-                                class="ti-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-google"
-                                aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://www.instagram.com/thapabikash67/"><i
-                                class="ti-instagram" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://github.com/Bikash4JP"><i
-                                class="ti-github" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">私の専門知識</h3>
-                <span class="line mb-5"></span>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>アプリケーション</h6>
-                        <p class="subtitle">python，frameworks</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>ウェブ開発</h6>
-                        <p class="subtitle">HTML,CSS,JavaScript</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-stats-up icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>データベース</h6>
-                        <p class="subtitle">MySQL</p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-vignette"></div>
+  <div class="container hero-content">
+    <p class="eyebrow reveal-up"><span class="dot-pulse"></span> <span data-en="Tokyo, Japan · Open to Project Placement" data-jp="日本・東京 · 案件参画募集中">Tokyo, Japan · Open to Project Placement</span></p>
+    <h1 class="hero-name reveal-up">THAPA BIKASH</h1>
+    <div class="hero-type reveal-up">
+      <span class="type-prefix">&gt;</span>
+      <span id="typewriter" class="type-text"></span><span class="type-cursor">|</span>
+    </div>
+    <p class="hero-pitch reveal-up" data-en="Came to Japan on my own drive to become an engineer — self-directed from vocational school straight through to production work." data-jp="自らエンジニアを目指して来日し、専門学校から実務まで一貫して自走してきたフルスタックエンジニア">
+      自らエンジニアを目指して来日し、専門学校から実務まで一貫して自走してきたフルスタックエンジニア
+    </p>
+    <div class="hero-cta reveal-up">
+      <a href="#projects" class="btn btn-primary">
+        <span data-en="View Projects" data-jp="実績を見る">View Projects</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-ghost">
+        <span data-en="Contact Me" data-jp="連絡する">Contact Me</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span data-en="Scroll" data-jp="スクロール">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div class="about-visual reveal-left">
+      <div class="tilt-card profile-card" id="profileCard">
+        <div class="profile-glow"></div>
+        <img src="assets/imgs/avatar.jpg" alt="Bikash Thapa" class="profile-img" loading="lazy" width="420" height="420">
+        <div class="profile-badge">
+          <span class="badge-dot"></span>
+          <span data-en="Available for work" data-jp="案件対応可能">Available for work</span>
         </div>
+      </div>
     </div>
 
-    <!--Resume Section-->
-    <section class="section" id="resume">
-        <div class="container">
-            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Expertise</h4>
-                                <span class="line"></span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">Basic Computer</h6>
-                            <P style="font-weight: bolder;">Goggle & YouTubes</P>
-                            <P class="subtitle">
-                                高校時代にコンピュータの使い方を学びました。初めてスマートフォンを手に入れたとき、コンピュータのテクノロジーや基本的な機能についてGoogleやYouTubeで時間を費やしました。
-                            </P>
-                            <hr>
-                            <h6 class="title text-danger">Web Creation</h6>
-                            <P style="font-weight: bolder;">Wordpress</P>
-                            <P class="subtitle">大学時代に初めてのノートパソコンを購入しました。ウェブサイトがどのように作成されるかに興味を持ち、その時に 'WordPress'
-                                を使って美しいウェブサイトを作成する方法を学びました。</P>
-                            <hr>
-                            <h6 class="title text-danger">Web Development</h6>
-                            <P style="font-weight: bolder;">AI & Youtube</P>
-                            <P class="subtitle">
-                                WordPressを使ってウェブサイトを作成した後、そのバックエンドの仕組みに興味を持ちました。GoogleやYouTubeで学び、実践しました。最近はGPT-3のおかげで問題を解決するのに役立っています。
-                            </P>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="mt-2">
-                                <h4>学歴</h4>
-                                <span class="line"></span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">2023 - 2025</h6>
-                            <P style="font-weight: bolder;">横浜システム工学部専門学校</P>
-                            <P class="subtitle">
-                                ここでITエンジニアリングを専攻しました。専攻はシステムエンジニアリングでアプリケーション開発、ネットワークセキュリティ、サーバー管理などを学びました。ですが、ウェブ開発は趣味以上のものです。この分野の学習をとても楽しんでいます。
-                            </P>
-                            <button class="btn btn-primary btn-rounded"
-                                onclick="printPdf('assets/Documents/成績証明書THAPA_BIKASH.pdf')">
-                                <i class="ti-printer pr-2"></i>証明書印刷
-                            </button>
-                            <hr>
-                            <h6 class="title text-danger">2022 - 2023</h6>
-                            <P style="font-weight: bolder;">環球日本語学習院</P>
-                            <P class="subtitle">
-                                日本は世界でも最高のテクノロジーアクセスを提供していると感じたため、ITの学士号を取得した後、キャリアを追求するためにここに来ました。ここで日本語を9ヶ月間勉強しています。
-                            </P>
-                            <button class="btn btn-primary btn-rounded"
-                                onclick="printPdf('assets/Documents/certificate_yokohama.pdf')">
-                                <i class="ti-printer pr-2"></i>証明書印刷
-                            </button>
-                            <hr>
-                            <h6 class="title text-danger">2015 - 2019</h6>
-                            <P style="font-weight: bolder;"> 国際ビジネス。大学</P>
-                            <P class="subtitle">
-                                高校卒業後、ネパールの大学でビジネス学の学士号を取得しました。大学ではビジネス概念や戦略を学び、コミュニケーション能力やリーダーシップスキルも磨きました。</P>
-                            <br><button class="btn btn-primary btn-rounded"
-                                onclick="printPdf('assets/Documents/大学証明書ビジネス.pdf')">
-                                <i class="ti-printer pr-2"></i>証明書印刷
-                            </button>
+    <div class="about-copy reveal-right">
+      <p class="section-tag">01 <span data-en="About" data-jp="自己紹介">About</span></p>
+      <h2 class="section-title" data-en="Engineer by choice, builder by habit." data-jp="自分の意思でエンジニアになり、手を動かし続けている。">Engineer by choice, builder by habit.</h2>
+      <p class="about-text"
+        data-en="Driven by a strong interest in technology and software, I chose Japan as my starting point to pursue a career as an IT engineer. After completing a 2-year system engineering program at a Tokyo vocational school, I joined a staffing agency as their sole in-house engineer — building an entire web platform from requirements to production in 14 months. Now at an SES company, I continue expanding my skills across diverse projects."
+        data-jp="テクノロジーへの強い関心から日本でITエンジニアとしてのキャリアをスタート。専門学校卒業後、送り出し機関の社内唯一のエンジニアとして14ヶ月間プラットフォームを設計・開発・運用。現在はSES企業でさらに成長中。">
+        Driven by a strong interest in technology and software, I chose Japan as my starting point to pursue a career as an IT engineer. After completing a 2-year system engineering program at a Tokyo vocational school, I joined a staffing agency as their sole in-house engineer — building an entire web platform from requirements to production in 14 months. Now at an SES company, I continue expanding my skills across diverse projects.
+      </p>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">スキル</h4>
-                                <span class="line"></span>
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                            <h6>HTML5 &amp; CSS3</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>JavaScript</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>PHP</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%"
-                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>SQL</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Python</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 65%"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Unity</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">言語</h4>
-                                <span class="line"></span>
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                            <h6>英語</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 95%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>日本語</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 65%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>ネパール語</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
-                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>インド語</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%"
-                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>バンガルー語</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num" data-count="3">0</span><span class="stat-suffix">+</span><p data-en="Years Experience" data-jp="実務経験">Years Experience</p></div>
+        <div class="stat-card"><span class="stat-num" data-count="50">0</span><span class="stat-suffix">+</span><p data-en="Skill Checks" data-jp="スキルチェック">Skill Checks</p></div>
+        <div class="stat-card"><span class="stat-num" data-count="4">0</span><span class="stat-suffix"></span><p data-en="Projects Shipped" data-jp="開発実績">Projects Shipped</p></div>
+        <div class="stat-card"><span class="stat-num" data-count="2">0</span><span class="stat-suffix"></span><p data-en="Languages" data-jp="使用言語">Languages</p></div>
+      </div>
 
+      <div class="lang-pills">
+        <span class="pill">日本語 · JLPT N2</span>
+        <span class="pill">English · Business</span>
+        <span class="pill">नेपाली · Native</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Portfolio Section -->
-    <!-- Portfolio Section -->
-    <div class="container portfolio-section" id="portfolio">
-        <h2 class="mb-5 text-center">My <span class="text-danger">Portfolio</span></h2>
-        <div class="row">
+<!-- SKILLS -->
+<section id="skills" class="section section-alt">
+  <div class="container">
+    <p class="section-tag center">02 <span data-en="Skills" data-jp="スキル">Skills</span></p>
+    <h2 class="section-title center" data-en="Tools I reach for." data-jp="日々使っている技術。">Tools I reach for.</h2>
 
-            <!-- Project Item -->
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/Fashion/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/fashion.png" alt="Fashion Project">
-                        <div class="portfolio-overlay">
-                            <h3>Fashion Project</h3>
-                            <p>This project showcases a modern fashion website design.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3 data-en="Languages & Frameworks" data-jp="言語・フレームワーク">Languages &amp; Frameworks</h3>
+        <div class="skill-row" data-pct="85"><div class="skill-head"><span>PHP / Laravel</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="80"><div class="skill-head"><span>TypeScript</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="90"><div class="skill-head"><span>JavaScript</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="75"><div class="skill-head"><span>Node.js</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="80"><div class="skill-head"><span>React Native</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="70"><div class="skill-head"><span>React (Web)</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="60"><div class="skill-head"><span>Python</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+      </div>
 
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/animated product -Drinks/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/Lemonade.png" alt="Lemonade Stand">
-                        <div class="portfolio-overlay">
-                            <h3>Lemonade Stand</h3>
-                            <p>A simple and clean design for a lemonade stand website.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+      <div class="skill-category">
+        <h3 data-en="Database & Cloud" data-jp="データベース・クラウド">Database &amp; Cloud</h3>
+        <div class="skill-row" data-pct="80"><div class="skill-head"><span>MySQL / PostgreSQL</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="70"><div class="skill-head"><span>AWS (EC2 / S3 / RDS)</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="70"><div class="skill-head"><span>Docker / CI-CD</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="80"><div class="skill-head"><span>Prisma ORM</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
 
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/PC_bycycle/src/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/ProductCard.png" alt="Product Card">
-                        <div class="portfolio-overlay">
-                            <h3>Product Card</h3>
-                            <p>Interactive bicycle tyre product card design.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <h3 class="cat-spacer" data-en="AI & Tools" data-jp="AI・ツール">AI &amp; Tools</h3>
+        <div class="skill-row" data-pct="90"><div class="skill-head"><span>Claude API</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="80"><div class="skill-head"><span>Gemini API</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="90"><div class="skill-head"><span>Claude Code</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="90"><div class="skill-head"><span>Git / GitHub</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+        <div class="skill-row" data-pct="70"><div class="skill-head"><span>Figma</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/Loading/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/loading.png" alt="Loading Animation">
-                        <div class="portfolio-overlay">
-                            <h3>Loading Animation</h3>
-                            <p>Responsive loading screen using CSS and JavaScript.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <p class="section-tag center">03 <span data-en="Projects" data-jp="実績">Projects</span></p>
+    <h2 class="section-title center" data-en="Things I've shipped." data-jp="手がけたプロジェクト。">Things I've shipped.</h2>
 
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/Mode/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/dark_mode.png" alt="Mode Switcher">
-                        <div class="portfolio-overlay">
-                            <h3>Mode Switcher</h3>
-                            <p>Toggle between dark and light modes using JavaScript.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/MenuList/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/menu_list.png" alt="Menu List">
-                        <div class="portfolio-overlay">
-                            <h3>Menu List</h3>
-                            <p>A beverage menu layout with price and details using JS.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="Projects/ColorPicker/index.html">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/color_Picker.png" alt="Colour Picker">
-                        <div class="portfolio-overlay">
-                            <h3>Colour Picker</h3>
-                            <p>JavaScript color picker that changes background color.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 portfolio-col">
-                <a href="https://it-future.jp/">
-                    <div class="portfolio-item">
-                        <img src="assets/imgs/ITFlogo.png" alt="株式会社ITF">
-                        <div class="portfolio-overlay">
-                            <h3>株式会社ITF</h3>
-                            <p>A simple starting homepage for ITF Corporation.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-tab active" data-filter="all" data-en="All" data-jp="すべて">All</button>
+      <button class="filter-tab" data-filter="web" data-en="Web" data-jp="Web">Web</button>
+      <button class="filter-tab" data-filter="mobile" data-en="Mobile" data-jp="モバイル">Mobile</button>
+      <button class="filter-tab" data-filter="ai" data-en="AI" data-jp="AI">AI</button>
+      <button class="filter-tab" data-filter="infra" data-en="Infrastructure" data-jp="インフラ">Infrastructure</button>
     </div>
 
+    <div class="projects-grid" id="projectsGrid">
 
-    <!-- ------------------Blog Section Started ---------------------------- -->
-    <section class="section" id="blog">
-        <div class="container">
-            <h2 class="mb-5">Latest <span class="text-danger">News</span></h2>
-            <div class="row">
-                <div class="blog-card">
-                    <div class="img-holder">
-                        <img src="assets/imgs/blog1.jpg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="content-holder">
-                        <h6 class="title">My First Snowfall Experience in Life: Enjoying Every Moment in Sendai, Japan
-                        </h6>
-                        <p class="post-details">
-                            <a href="#">Date: December 17, 2022 </a>
-                        </p>
-
-                        <p>私は、初めて仙台で雪を見た日を今でも覚えています。それは2022年12月17日でした。心に喜びと驚きをもたらす日でした。雪が珍しい場所で育った私にとって、これは魔法のような瞬間でした。
-                        </p>
-                        <p>最初の雪片が空から降り始めると、興奮を抑えることができませんでした。周りのすべてが一変し、純白の雪に覆われた街並み、木々、屋根が、以前映画でしか見たことのない絵のような光景を作り出しました。
-                        </p>
-                        <p>私は雪の中を歩いてみることにしました。冷たい雪片が優しく私の顔に触れる感覚を味わいました。それは非現実的な体験であり、耳から耳まで笑顔が止まりませんでした。雪の上を歩く音が、その瞬間の魔法をさらに引き立て、平和で静かな雰囲気を作り出しました。
-                        </p>
-                        <p>雪で遊ぶ子供たちを見ました。雪だるまを作ったり、雪合戦をしたりしていました。彼らの笑い声が空気を満たし、その日の喜びに満ちた雰囲気をさらに高めました。私も楽しんで参加し、周りの冬の不思議な世界を楽しみました。
-                        </p>
-                        <p>外で過ごした後、近くのコンビニでホットココアで温まることにしました。暖かい飲み物の温かさと外の寒さが組み合わさり、心地よく満たされました。窓際に座り、外で雪が降り続けるのを眺めながら、この美しい体験に感謝の気持ちでいっぱいでした。
-                        </p>
-                        <p>初めての雪を仙台で体験することは、本当に魔法のようでした。喜びと驚き、幸福に満ちた日であり、これからもずっと大切にする思い出です。</p>
-                    </div>
-                </div><!-- end of blog wrapper -->
-
-                <!-- blog-card -->
-                <div class="blog-card">
-                    <div class="img-holder">
-                        <img src="assets/imgs/blog2.jpg" alt="#">
-                        alt="#">
-                    </div>
-                    <div class="content-holder">
-                        <h6 class="title">The Sam Altman Drama at OpenAI</h6>
-
-                        <p class="post-details">
-                            <a href="#">Date:January 9, 2024</a>
-                        </p>
-
-                        <p>Over a dramatic five-day period, the artificial intelligence industry witnessed a
-                            rollercoaster of events involving Sam Altman, a prominent AI leader and co-founder of
-                            OpenAI. Here’s a concise breakdown:
-
-                            1. Ouster and Investor Backlash: Sam Altman, the ousted CEO of OpenAI, faced a sudden
-                            departure from the company he helped create. The board forced him out, and Microsoft
-                            extended a job offer to him. Investor and employee pushback ensued, questioning the
-                            decision.
-
-                            2. Reinstatement as CEO: In a stunning reversal, Altman announced his return as OpenAI’s CEO
-                            just days after his ousting. The board of directors underwent significant changes due to
-                            Altman’s reinstatement.
-
-                            3. The New Board: The initial board now includes Bret Taylor (formerly co-CEO of Salesforce
-                            Inc.), leading the way. Larry Summers and Adam D’Angelo also join the interim board.
-
-                            In summary, Altman’s swift exit and subsequent comeback captivated Silicon Valley, leaving
-                            us with a boardroom drama that will undoubtedly shape OpenAI’s future. Stay tuned for
-                            further developments! </p>
-                    </div>
-                </div>
-                <!-- end of blog wrapper-->
-                <!-- blog-card-->
-
-                <!-- end of blog wrapper -->
-            </div>
+      <article class="tilt-card project-card" data-cats="web ai infra">
+        <div class="project-top">
+          <span class="status-badge status-live">Production</span>
+          <span class="project-link muted" data-en="Private repo" data-jp="非公開リポジトリ">Private repo</span>
         </div>
-    </section>
-    <!-- -----------------------contact section started------------------------- -->
-    <div class="section contact" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form-card">
-                        <h4 class="contact-title">Send a message</h4>
-                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                            <input type="hidden" name="access_key" value="df786524-db2e-4afe-8c9f-b23e1e5759c9">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="name" placeholder="Name *" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="email" id="email" name="email" placeholder="Email *"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" placeholder="Message *" rows="7"
-                                    required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary">Send
-                                    Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h4 class="contact-title">Get in touch</h4>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-mobile icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">電話 : <br> <span class="text-muted">090 86165634</span>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-map-alt icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">住所 :<br> <span class="text-muted">神奈川県大和市中央３－７－１９山口コーポ２　２０５号</span>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-envelope icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">メール :<br> <span class="text-muted">bikash4jp@gmail.com</span></h6>
-                            </div>
-                        </div>
-                        <ul class="social-icons pt-4">
-                            <li class="social-item"><a class="social-link text-dark"
-                                    href="https://www.facebook.com/profile.php?id=100010032730011"><i
-                                        class="ti-facebook" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="https://x.com/Bikash4JP"><i
-                                        class="ti-twitter" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark"
-                                    href="https://www.instagram.com/thapabikash67/"><i class="ti-instagram"
-                                        aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark"
-                                    href="https://github.com/Bikash4JP"><i class="ti-github" aria-hidden="true"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <h3>ITF Web Platform</h3>
+        <p class="project-desc" data-en="Designed and built a complete staffing agency web platform solo — job management, staff management, AI-powered resume generation, 9-language multilingual support. From requirements definition to production deployment in 14 months." data-jp="人材紹介会社の業務プラットフォームを一人で設計・開発。求人管理、社員管理、AIによる履歴書生成、9言語対応を実装。要件定義から本番稼働まで14ヶ月で完遂。">
+          Designed and built a complete staffing agency web platform solo — job management, staff management, AI-powered resume generation, 9-language multilingual support. From requirements definition to production deployment in 14 months.
+        </p>
+        <div class="project-tags">
+          <span>PHP</span><span>Laravel</span><span>Claude API</span><span>AWS</span><span>MySQL</span><span>Multi-lang</span>
         </div>
+        <p class="project-highlight">★ <span data-en="9-language support · Claude API integration · AWS EC2 production" data-jp="9言語対応 · Claude API連携 · AWS EC2で本番稼働">9-language support · Claude API integration · AWS EC2 production</span></p>
+      </article>
+
+      <article class="tilt-card project-card" data-cats="mobile web">
+        <div class="project-top">
+          <span class="status-badge status-live">Released</span>
+          <a class="project-link" href="https://github.com/Bikash4JP" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <h3>MobiLedger</h3>
+        <p class="project-desc" data-en="Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping, automatic P&L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support." data-jp="iOS・Android向けの日英対応家計簿アプリ。複式簿記、損益計算書・貸借対照表・試算表の自動生成、PDF出力、多通貨対応を実装。">
+          Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping, automatic P&amp;L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support.
+        </p>
+        <div class="project-tags">
+          <span>React Native</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Expo</span>
+        </div>
+        <p class="project-highlight">★ <span data-en="Solo full-stack · iOS + Android · financial statement automation" data-jp="個人でフルスタック開発 · iOS/Android両対応 · 財務諸表自動生成">Solo full-stack · iOS + Android · financial statement automation</span></p>
+      </article>
+
+      <article class="tilt-card project-card" data-cats="ai infra web">
+        <div class="project-top">
+          <span class="status-badge status-progress" data-en="In Development" data-jp="開発中">In Development</span>
+          <a class="project-link" href="https://github.com/Bikash4JP/devpulse-engineer-assistant" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <h3>DevPulse</h3>
+        <p class="project-desc" data-en="Engineer productivity hub that automatically collects messages from Slack, LINE, and Gmail, summarizes them daily using AI, generates PDF reports, and delivers push notifications. Full CI/CD pipeline, deployed to AWS EC2." data-jp="Slack・LINE・Gmailのメッセージを自動収集し、AIで日次要約、PDFレポート生成とプッシュ通知を行うエンジニア向け生産性ツール。CI/CDパイプライン付きでAWS EC2に本番デプロイ。">
+          Engineer productivity hub that automatically collects messages from Slack, LINE, and Gmail, summarizes them daily using AI, generates PDF reports, and delivers push notifications. Full CI/CD pipeline, deployed to AWS EC2.
+        </p>
+        <div class="project-tags">
+          <span>Node.js</span><span>TypeScript</span><span>OAuth2.0</span><span>Gemini AI</span><span>Docker</span><span>AWS</span>
+        </div>
+        <p class="project-highlight">★ <span data-en="OAuth2.0 · AES-256-GCM encryption · Gemini AI · GitHub Actions CI/CD" data-jp="OAuth2.0 · AES-256-GCM暗号化 · Gemini AI · GitHub Actions CI/CD">OAuth2.0 · AES-256-GCM encryption · Gemini AI · GitHub Actions CI/CD</span></p>
+        <p class="project-live">🔴 <span data-en="Live at" data-jp="稼働中：">Live at</span> <a href="https://api.bikash4jp.com" target="_blank" rel="noopener">api.bikash4jp.com</a></p>
+      </article>
+
+      <article class="tilt-card project-card" data-cats="ai">
+        <div class="project-top">
+          <span class="status-badge status-campus" data-en="Campus Project" data-jp="専門学校課題">Campus Project</span>
+          <span class="project-link muted" data-en="Coursework" data-jp="学内制作">Coursework</span>
+        </div>
+        <h3>Image Recognition System</h3>
+        <p class="project-desc" data-en="Machine learning image classification system built during vocational school. Applied supervised learning techniques for model training and evaluation." data-jp="専門学校在学中に制作した画像分類システム。教師あり学習を用いたモデルの学習・評価を実施。">
+          Machine learning image classification system built during vocational school. Applied supervised learning techniques for model training and evaluation.
+        </p>
+        <div class="project-tags">
+          <span>Python</span><span>scikit-learn</span><span>TensorFlow</span><span>OpenCV</span><span>NumPy</span>
+        </div>
+        <p class="project-highlight">★ <span data-en="ML pipeline · Python · computer vision" data-jp="MLパイプライン · Python · コンピュータビジョン">ML pipeline · Python · computer vision</span></p>
+      </article>
+
     </div>
-    <!-- ----------------footer started------------------------- -->
-    <footer class="footer py-3">
-        <div class="container text-center">
-            <p class="small mb-0 text-light">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> Created By <a
-                    href="https://github.com/Bikash4JP/" target="_blank"><span class="text-danger"
-                        title="Bootstrap 4 Themes and Dashboards">Bikash</span></a>
-            </p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section section-alt">
+  <div class="container">
+    <p class="section-tag center">04 <span data-en="Experience" data-jp="経歴">Experience</span></p>
+    <h2 class="section-title center" data-en="Where I've worked." data-jp="これまでの経歴。">Where I've worked.</h2>
+
+    <div class="timeline">
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-period">2026年7月 – <span data-en="Present" data-jp="現在">Present</span></span>
+          <h3>Enfast-Tech Co., Ltd.</h3>
+          <p class="timeline-role" data-en="SES Software Engineer" data-jp="SESソフトウェアエンジニア">SES Software Engineer</p>
+          <p class="timeline-desc" data-en="Actively pursuing project placement while conducting intensive self-study. Built DevPulse (full-stack Node.js/TypeScript app) and completed AWS Cloud Practitioner studies during bench period." data-jp="案件参画を目指しつつ、自己研鑽期間中にDevPulse（Node.js/TypeScriptフルスタックアプリ）を開発。AWS Cloud Practitionerの学習も完了。">
+            Actively pursuing project placement while conducting intensive self-study. Built DevPulse (full-stack Node.js/TypeScript app) and completed AWS Cloud Practitioner studies during bench period.
+          </p>
+          <div class="timeline-skills">
+            <span>Node.js</span><span>TypeScript</span><span>Docker</span><span>GitHub Actions</span><span>AWS</span><span>OAuth2.0</span>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <div class="timeline-item reveal-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-period">2025年4月 – 2026年6月 <span data-en="(14 months)" data-jp="（14ヶ月）">(14 months)</span></span>
+          <h3 data-en="Staffing Agency (ITF)" data-jp="送り出し機関（ITF）">Staffing Agency (ITF)</h3>
+          <p class="timeline-role" data-en="In-House IT Engineer (Sole Engineer)" data-jp="社内ITエンジニア（唯一のエンジニア）">In-House IT Engineer (Sole Engineer)</p>
+          <p class="timeline-desc" data-en="Built and operated a complete web platform from zero. Handled all phases: requirements definition, system design, implementation, testing, deployment, and ongoing maintenance. Worked directly with non-technical executives." data-jp="ゼロからWebプラットフォームを構築・運用。要件定義、設計、実装、テスト、デプロイ、保守まで全工程を担当。非技術系の経営層と直接連携。">
+            Built and operated a complete web platform from zero. Handled all phases: requirements definition, system design, implementation, testing, deployment, and ongoing maintenance. Worked directly with non-technical executives.
+          </p>
+          <div class="timeline-skills">
+            <span>PHP</span><span>Laravel</span><span>MySQL</span><span>Claude API</span><span>AWS EC2</span><span>JavaScript</span><span>jQuery</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-period">2022年 – 2024年</span>
+          <h3 data-en="Yokohama System Engineering (Vocational School)" data-jp="横浜システム工学院専門学校">Yokohama System Engineering (Vocational School)</h3>
+          <p class="timeline-role" data-en="System Engineering Student" data-jp="システムエンジニアリング専攻">System Engineering Student</p>
+          <p class="timeline-desc" data-en="2-year intensive program in system engineering. Studied programming fundamentals, database design, network basics, web development." data-jp="システムエンジニアリングの2年間集中プログラム。プログラミング基礎、データベース設計、ネットワーク基礎、Web開発を学ぶ。">
+            2-year intensive program in system engineering. Studied programming fundamentals, database design, network basics, web development.
+          </p>
+          <div class="timeline-skills">
+            <span>Python</span><span>HTML/CSS</span><span>JavaScript</span><span>MySQL</span><span>Java basics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Isotope  -->
-    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
-    <!-- js  -->
-    <script src="assets/js/bikash.js"></script>
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section">
+  <div class="container">
+    <p class="section-tag center">05 <span data-en="Certifications & Languages" data-jp="資格・言語">Certifications &amp; Languages</span></p>
+    <h2 class="section-title center" data-en="Verified & in progress." data-jp="取得済み・学習中の資格。">Verified &amp; in progress.</h2>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">JP</div>
+        <h3>JLPT N2</h3>
+        <p data-en="Japanese Language Proficiency" data-jp="日本語能力試験">Japanese Language Proficiency</p>
+        <span class="cert-status status-live" data-en="Certified" data-jp="取得済み">Certified</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">EN</div>
+        <h3>TOEIC 710</h3>
+        <p data-en="English Proficiency Score" data-jp="英語検定スコア">English Proficiency Score</p>
+        <span class="cert-status status-live" data-en="Certified" data-jp="取得済み">Certified</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁</div>
+        <h3>AWS CLF-C02</h3>
+        <p data-en="AWS Cloud Practitioner" data-jp="AWS Cloud Practitioner">AWS Cloud Practitioner</p>
+        <span class="cert-status status-progress" data-en="Studies Completed" data-jp="学習完了">Studies Completed</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">JP</div>
+        <h3>JLPT N1</h3>
+        <p data-en="Japanese Language Proficiency" data-jp="日本語能力試験">Japanese Language Proficiency</p>
+        <span class="cert-status status-target" data-en="Targeting Dec 2026" data-jp="2026年12月目標">Targeting Dec 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section-alt">
+  <div class="container contact-grid">
+    <div class="reveal-left">
+      <p class="section-tag">06 <span data-en="Contact" data-jp="連絡先">Contact</span></p>
+      <h2 class="section-title" data-en="Let's build something." data-jp="一緒に何かを作りましょう。">Let's build something.</h2>
+      <p class="contact-intro" data-en="Open to project placement, freelance work, and collaboration. Reach out and I'll get back to you within a day." data-jp="案件参画・フリーランス・協業のご相談を歓迎します。1日以内にご返信します。">
+        Open to project placement, freelance work, and collaboration. Reach out and I'll get back to you within a day.
+      </p>
+      <ul class="contact-info">
+        <li><span class="ci-label" data-en="Email" data-jp="メール">Email</span><a href="mailto:bikash4jp@gmail.com">bikash4jp@gmail.com</a></li>
+        <li><span class="ci-label">GitHub</span><a href="https://github.com/Bikash4JP" target="_blank" rel="noopener">github.com/Bikash4JP</a></li>
+        <li><span class="ci-label" data-en="Location" data-jp="所在地">Location</span><span>Tokyo, Japan</span></li>
+        <li><span class="ci-label" data-en="Available for" data-jp="対応可能">Available for</span><span data-en="Project placement, freelance, collaboration" data-jp="案件参画・フリーランス・協業">Project placement, freelance, collaboration</span></li>
+      </ul>
+    </div>
+
+    <form class="contact-form reveal-right" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="df786524-db2e-4afe-8c9f-b23e1e5759c9">
+      <input type="hidden" name="subject" value="New message from portfolio site">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="form-row">
+        <label for="name" data-en="Name" data-jp="お名前">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="email" data-en="Email" data-jp="メールアドレス">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="message" data-en="Message" data-jp="メッセージ">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">
+        <span class="btn-text" data-en="Send Message" data-jp="送信する">Send Message</span>
+        <span class="btn-loading" hidden data-en="Sending…" data-jp="送信中…">Sending…</span>
+      </button>
+      <p class="form-status" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Bikash Thapa. <span data-en="All rights reserved." data-jp="All rights reserved.">All rights reserved.</span></p>
+    <div class="footer-links">
+      <a href="https://github.com/Bikash4JP" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:bikash4jp@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/js/three-bg.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>
