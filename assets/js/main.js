@@ -67,6 +67,7 @@
       langToggle.querySelector('.lang-jp').classList.toggle('active', lang === 'jp');
     }
     localStorage.setItem('bt-lang', lang);
+    document.dispatchEvent(new CustomEvent('bt:lang', { detail: lang }));
   }
 
   const savedLang = localStorage.getItem('bt-lang') || 'en';
@@ -194,9 +195,72 @@
     }
   });
 
+  /* ---------------- Featured reel (MobiLedger launch video) ----------------
+     Idle: silent looping preview that only plays while on screen.
+     Click: restart from 0 with sound + native controls.
+     Language toggle swaps in the matching EN / JP cut. */
+  const reel = document.getElementById('reel');
+  if (reel) {
+    const video = reel.querySelector('video');
+    const playBtn = reel.querySelector('.reel-play');
+    const cuts = {
+      en: { src: 'assets/video/brag-en.mp4', poster: 'assets/video/brag-en-poster.webp', label: 'MobiLedger launch video' },
+      jp: { src: 'assets/video/brag-jp.mp4', poster: 'assets/video/brag-jp-poster.webp', label: 'MobiLedger 紹介動画' },
+    };
+    const conn = navigator.connection;
+    const canAutoplay = !prefersReducedMotion && !(conn && conn.saveData);
+    let inView = false;
+    let engaged = false;
+
+    const tryPlay = () => { const p = video.play(); if (p && p.catch) p.catch(() => {}); };
+
+    function showPreview() {
+      engaged = false;
+      reel.dataset.state = 'preview';
+      video.controls = false;
+      video.loop = true;
+      video.muted = true;
+      if (inView && canAutoplay) tryPlay(); else video.pause();
+    }
+
+    function playWithSound() {
+      engaged = true;
+      reel.dataset.state = 'playing';
+      video.loop = false;
+      video.muted = false;
+      video.controls = true;
+      video.currentTime = 0;
+      tryPlay();
+    }
+
+    function setReelLang(lang) {
+      const cut = cuts[lang] || cuts.en;
+      if (!video.getAttribute('src').endsWith(cut.src)) {
+        video.pause();
+        video.src = cut.src;
+        video.poster = cut.poster;
+      }
+      video.setAttribute('aria-label', cut.label);
+      showPreview();
+    }
+
+    playBtn.addEventListener('click', playWithSound);
+    video.addEventListener('click', () => { if (!engaged) playWithSound(); });
+    video.addEventListener('ended', showPreview);
+
+    new IntersectionObserver((entries) => {
+      inView = entries[0].isIntersecting;
+      if (engaged) { if (!inView) video.pause(); return; }
+      if (inView && canAutoplay) tryPlay(); else video.pause();
+    }, { threshold: 0.35 }).observe(reel);
+
+    document.addEventListener('bt:lang', (e) => setReelLang(e.detail));
+    setReelLang(root.getAttribute('data-lang'));
+  }
+
   /* ---------------- Project filter ---------------- */
   const filterTabs = document.getElementById('filterTabs');
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectCards = document.querySelectorAll('.project-card, .showcase');
   if (filterTabs) {
     filterTabs.addEventListener('click', (e) => {
       const btn = e.target.closest('.filter-tab');

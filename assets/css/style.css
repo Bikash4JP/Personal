@@ -366,6 +366,68 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
 .filter-tab:hover{ color:var(--text-primary); border-color:var(--glass-border-hi); }
 .filter-tab.active{ background:var(--accent-grad); color:#04121a; border-color:transparent; font-weight:600; }
 
+/* ---------- Featured reel (launch video) ---------- */
+.showcase{
+  display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:48px; align-items:center;
+  grid-column:1 / -1; padding:20px;
+  background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--radius-lg);
+  position:relative; isolation:isolate;
+  transition:border-color .3s ease, box-shadow .3s ease;
+}
+.showcase::before{
+  /* soft brand glow behind the frame */
+  content:''; position:absolute; inset:-1px; z-index:-1; border-radius:inherit; pointer-events:none;
+  background:radial-gradient(60% 80% at 25% 50%, rgba(99,102,241,0.16), transparent 70%),
+             radial-gradient(40% 60% at 90% 10%, rgba(34,211,238,0.10), transparent 70%);
+}
+.showcase:hover{ border-color:var(--glass-border-hi); box-shadow:0 30px 80px -30px rgba(99,102,241,0.4); }
+.showcase.reveal-up.in{ transition:opacity .8s var(--ease), transform .8s var(--ease), border-color .3s ease, box-shadow .3s ease; }
+.showcase.hide{ display:none; }
+
+.reel{
+  position:relative; aspect-ratio:16/9; overflow:hidden;
+  border-radius:var(--radius-md); background:#08090f;
+  border:1px solid var(--glass-border);
+}
+.reel-video{ display:block; width:100%; height:100%; object-fit:cover; cursor:pointer; }
+.reel[data-state="playing"] .reel-video{ cursor:auto; }
+
+.reel-play{
+  position:absolute; left:16px; bottom:16px; z-index:2;
+  display:inline-flex; align-items:center; gap:10px;
+  padding:8px 18px 8px 8px; border-radius:100px;
+  font-size:13.5px; font-weight:600; color:var(--text-primary);
+  background:rgba(6,9,18,0.72); border:1px solid var(--glass-border);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  transition:transform .3s var(--ease), border-color .3s ease, background .3s ease, opacity .3s ease;
+}
+.reel-play:hover, .reel-play:focus-visible{ transform:translateY(-2px); border-color:var(--glass-border-hi); background:rgba(6,9,18,0.88); }
+.reel-play:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+.reel-play-icon{
+  position:relative; width:34px; height:34px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--accent-grad); color:#04121a;
+}
+.reel-play-icon svg{ margin-left:2px; }
+.reel-play-icon::after{
+  content:''; position:absolute; inset:0; border-radius:50%;
+  box-shadow:0 0 0 0 rgba(34,211,238,0.55); animation:reelPulse 2.4s infinite;
+}
+@keyframes reelPulse{ 0%{ box-shadow:0 0 0 0 rgba(34,211,238,0.5); } 70%{ box-shadow:0 0 0 12px rgba(34,211,238,0); } 100%{ box-shadow:0 0 0 0 rgba(34,211,238,0); } }
+.reel[data-state="playing"] .reel-play,
+.reel[data-state="playing"] .reel-meta{ opacity:0; visibility:hidden; pointer-events:none; }
+
+.reel-meta{
+  position:absolute; right:16px; bottom:22px; z-index:2;
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:rgba(232,237,247,0.7);
+  text-shadow:0 1px 8px rgba(0,0,0,0.7);
+}
+
+.showcase-copy{ display:flex; flex-direction:column; gap:14px; padding:8px 12px 8px 0; }
+.showcase-copy h3{ font-size:clamp(24px,2.6vw,30px); line-height:1.15; }
+.showcase-cta{ margin-top:8px; }
+.showcase:hover .project-tags span{ border-color:var(--glass-border-hi); color:var(--text-primary); }
+
 .projects-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
 .project-card{
   padding:32px; display:flex; flex-direction:column; gap:14px;
@@ -490,6 +552,8 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
   .about-visual{ order:-1; }
   .skills-grid{ grid-template-columns:1fr; gap:36px; }
   .projects-grid{ grid-template-columns:1fr; }
+  .showcase{ grid-template-columns:1fr; gap:28px; }
+  .showcase-copy{ padding:0 8px 8px; }
   .cert-grid{ grid-template-columns:repeat(2,1fr); }
   .stats-grid{ grid-template-columns:repeat(2,1fr); }
 }
@@ -522,4 +586,8 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
   .stats-grid{ grid-template-columns:1fr 1fr; }
   .hero-cta{ flex-direction:column; align-items:stretch; }
   .btn{ justify-content:center; }
+  .showcase{ padding:12px; }
+  .reel-play{ left:10px; bottom:10px; gap:8px; padding:5px 14px 5px 5px; font-size:12px; }
+  .reel-play-icon{ width:26px; height:26px; }
+  .reel-meta{ display:none; }
 }

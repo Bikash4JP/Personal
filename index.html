@@ -284,6 +284,57 @@
 
         <div class="projects-grid" id="projectsGrid">
 
+          <!-- MobiLedger: video + project details in one card (EN/JP cut swaps with the language toggle) -->
+          <div class="showcase reveal-up" id="showcase" data-cats="mobile web">
+            <div class="reel" id="reel" data-state="preview">
+              <video class="reel-video" id="reelVideo" src="assets/video/brag-en.mp4"
+                poster="assets/video/brag-en-poster.webp" width="1920" height="1080" muted loop playsinline
+                preload="none" aria-label="MobiLedger launch video"></video>
+              <button class="reel-play" id="reelPlay" type="button">
+                <span class="reel-play-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                    <path d="M3 1.6v10.8a.6.6 0 0 0 .92.5l8.6-5.4a.6.6 0 0 0 0-1L3.92 1.1A.6.6 0 0 0 3 1.6Z" />
+                  </svg>
+                </span>
+                <span data-en="Play with sound" data-jp="音声つきで再生">Play with sound</span>
+              </button>
+              <span class="reel-meta" aria-hidden="true">0:22 · 1080p</span>
+            </div>
+
+            <div class="showcase-copy">
+              <div class="project-top">
+                <span class="status-badge status-live">Released</span>
+                <a class="project-link" href="https://github.com/Bikash4JP" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <h3>MobiLedger</h3>
+              <p class="project-desc"
+                data-en="Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping, automatic P&L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support."
+                data-jp="iOS・Android向けの日英対応家計簿アプリ。複式簿記、損益計算書・貸借対照表・試算表の自動生成、PDF出力、多通貨対応を実装。">
+                Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping,
+                automatic P&amp;L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support.
+              </p>
+              <div class="project-tags">
+                <span>React
+                  Native</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Expo</span>
+              </div>
+              <p class="project-highlight">★ <span
+                  data-en="Solo full-stack · iOS + Android · financial statement automation"
+                  data-jp="個人でフルスタック開発 · iOS/Android両対応 · 財務諸表自動生成">Solo full-stack · iOS + Android · financial statement
+                  automation</span></p>
+              <div class="showcase-cta">
+                <a class="btn btn-primary"
+                  href="https://drive.google.com/file/d/1PWaS5EBDcbdmCDNAuzfMNjTIKiClFDXr/view?usp=sharing"
+                  target="_blank" rel="noopener">
+                  <span data-en="Download Android APK" data-jp="Android版APKをダウンロード">Download Android APK</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
           <article class="tilt-card project-card" data-cats="web ai infra">
             <div class="project-top">
               <span class="status-badge status-live">Production</span>
@@ -307,32 +358,6 @@
                 data-en="9-language support · Claude API integration · AWS EC2 production"
                 data-jp="9言語対応 · Claude API連携 · AWS EC2で本番稼働">9-language support · Claude API integration · AWS EC2
                 production</span></p>
-          </article>
-
-          <article class="tilt-card project-card" data-cats="mobile web">
-            <div class="project-top">
-              <span class="status-badge status-live">Released</span>
-              <a class="project-link" href="https://github.com/Bikash4JP" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-            <h3>MobiLedger</h3>
-            <p class="project-desc"
-              data-en="Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping, automatic P&L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support."
-              data-jp="iOS・Android向けの日英対応家計簿アプリ。複式簿記、損益計算書・貸借対照表・試算表の自動生成、PDF出力、多通貨対応を実装。">
-              Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping,
-              automatic P&amp;L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support.
-            </p>
-            <div class="project-tags">
-              <span>React
-                Native</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Expo</span>
-            </div>
-            <p class="project-highlight">★ <span
-                data-en="Solo full-stack · iOS + Android · financial statement automation"
-                data-jp="個人でフルスタック開発 · iOS/Android両対応 · 財務諸表自動生成">Solo full-stack · iOS + Android · financial statement
-                automation</span></p>
-            <p class="project-live">📱 <a
-                href="https://drive.google.com/file/d/1PWaS5EBDcbdmCDNAuzfMNjTIKiClFDXr/view?usp=sharing"
-                target="_blank" rel="noopener"><span data-en="Download Android APK"
-                  data-jp="Android版APKをダウンロード">Download Android APK</span> ↗</a></p>
           </article>
 
           <article class="tilt-card project-card" data-cats="ai infra web">
