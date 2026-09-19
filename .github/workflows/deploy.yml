@@ -26,6 +26,14 @@ jobs:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
+      - name: Stamp build id into asset URLs
+        run: |
+          # css/js are cached for a day and are not content-hashed, so a returning
+          # visitor would run yesterday's script against today's HTML. index.html always
+          # revalidates, so changing the ?v= value here forces fresh assets on every deploy.
+          sed -i "s/__BUILD__/${GITHUB_SHA::8}/g" index.html
+          grep -c "?v=${GITHUB_SHA::8}" index.html
+
       - name: Sync site to S3
         run: |
           # Long cache for everything except index.html, since assets aren't
