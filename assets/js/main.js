@@ -195,20 +195,27 @@
     }
   });
 
-  /* ---------------- Featured reel (MobiLedger launch video) ----------------
+  /* ---------------- Project reels (video + details cards) ----------------
      Idle: silent looping preview that only plays while on screen.
-     Click: restart from 0 with sound + native controls.
-     Language toggle swaps in the matching EN / JP cut. */
-  const reel = document.getElementById('reel');
-  if (reel) {
+     Click: restart from 0 with sound + native controls (one reel with sound at a time).
+     A reel may declare a Japanese cut (data-src-jp / data-poster-jp / data-label-jp on the
+     <video>); the language toggle swaps it in. Reels without one keep playing untouched. */
+  const conn = navigator.connection;
+  const canAutoplay = !prefersReducedMotion && !(conn && conn.saveData);
+  const reels = [];
+
+  document.querySelectorAll('.reel').forEach((reel) => {
     const video = reel.querySelector('video');
     const playBtn = reel.querySelector('.reel-play');
+    const d = video.dataset;
     const cuts = {
-      en: { src: 'assets/video/brag-en.mp4', poster: 'assets/video/brag-en-poster.webp', label: 'MobiLedger launch video' },
-      jp: { src: 'assets/video/brag-jp.mp4', poster: 'assets/video/brag-jp-poster.webp', label: 'MobiLedger 紹介動画' },
+      en: { src: video.getAttribute('src'), poster: video.getAttribute('poster'), label: video.getAttribute('aria-label') },
+      jp: {
+        src: d.srcJp || video.getAttribute('src'),
+        poster: d.posterJp || video.getAttribute('poster'),
+        label: d.labelJp || video.getAttribute('aria-label'),
+      },
     };
-    const conn = navigator.connection;
-    const canAutoplay = !prefersReducedMotion && !(conn && conn.saveData);
     let inView = false;
     let engaged = false;
 
@@ -224,6 +231,7 @@
     }
 
     function playWithSound() {
+      reels.forEach((r) => { if (r.reel !== reel) r.release(); });
       engaged = true;
       reel.dataset.state = 'playing';
       video.loop = false;
@@ -233,9 +241,11 @@
       tryPlay();
     }
 
-    function setReelLang(lang) {
+    function setLang(lang, initial) {
       const cut = cuts[lang] || cuts.en;
-      if (!video.getAttribute('src').endsWith(cut.src)) {
+      const same = video.getAttribute('src') === cut.src;
+      if (same && !initial) return; // no other cut for this language: leave playback alone
+      if (!same) {
         video.pause();
         video.src = cut.src;
         video.poster = cut.poster;
@@ -254,9 +264,10 @@
       if (inView && canAutoplay) tryPlay(); else video.pause();
     }, { threshold: 0.35 }).observe(reel);
 
-    document.addEventListener('bt:lang', (e) => setReelLang(e.detail));
-    setReelLang(root.getAttribute('data-lang'));
-  }
+    reels.push({ reel, release: () => { if (engaged) showPreview(); } });
+    document.addEventListener('bt:lang', (e) => setLang(e.detail, false));
+    setLang(root.getAttribute('data-lang'), true);
+  });
 
   /* ---------------- Project filter ---------------- */
   const filterTabs = document.getElementById('filterTabs');

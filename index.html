@@ -285,12 +285,13 @@
         <div class="projects-grid" id="projectsGrid">
 
           <!-- MobiLedger: video + project details in one card (EN/JP cut swaps with the language toggle) -->
-          <div class="showcase reveal-up" id="showcase" data-cats="mobile web">
-            <div class="reel" id="reel" data-state="preview">
-              <video class="reel-video" id="reelVideo" src="assets/video/brag-en.mp4"
-                poster="assets/video/brag-en-poster.webp" width="1920" height="1080" muted loop playsinline
-                preload="none" aria-label="MobiLedger launch video"></video>
-              <button class="reel-play" id="reelPlay" type="button">
+          <div class="showcase reveal-up" id="showcase-mobiledger" data-cats="mobile web">
+            <div class="reel" data-state="preview">
+              <video class="reel-video" src="assets/video/brag-en.mp4" poster="assets/video/brag-en-poster.webp"
+                data-src-jp="assets/video/brag-jp.mp4" data-poster-jp="assets/video/brag-jp-poster.webp"
+                data-label-jp="MobiLedger 紹介動画" width="1920" height="1080" muted loop playsinline preload="none"
+                aria-label="MobiLedger launch video"></video>
+              <button class="reel-play" type="button">
                 <span class="reel-play-icon" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
                     <path d="M3 1.6v10.8a.6.6 0 0 0 .92.5l8.6-5.4a.6.6 0 0 0 0-1L3.92 1.1A.6.6 0 0 0 3 1.6Z" />
@@ -335,30 +336,55 @@
             </div>
           </div>
 
-          <article class="tilt-card project-card" data-cats="web ai infra">
-            <div class="project-top">
-              <span class="status-badge status-live">Production</span>
-              <a class="project-link" href="https://it-future.jp/" target="_blank" rel="noopener">
-                <span data-en="Visit Site" data-jp="サイトを見る">Visit Site</span> ↗
-              </a>
+          <!-- ITF Web Platform: video + project details in one card (same video in EN and JP) -->
+          <div class="showcase reveal-up" id="showcase-itf" data-cats="web ai infra">
+            <div class="reel" data-state="preview">
+              <video class="reel-video" src="assets/video/itf_promo.mp4" poster="assets/video/itf-poster.webp"
+                width="1920" height="1080" muted loop playsinline preload="none"
+                aria-label="ITF Web Platform promo video"></video>
+              <button class="reel-play" type="button">
+                <span class="reel-play-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                    <path d="M3 1.6v10.8a.6.6 0 0 0 .92.5l8.6-5.4a.6.6 0 0 0 0-1L3.92 1.1A.6.6 0 0 0 3 1.6Z" />
+                  </svg>
+                </span>
+                <span data-en="Play with sound" data-jp="音声つきで再生">Play with sound</span>
+              </button>
+              <span class="reel-meta" aria-hidden="true">0:53 · 1080p</span>
             </div>
-            <h3>ITF Web Platform</h3>
-            <p class="project-desc"
-              data-en="Designed and built a complete staffing agency web platform solo — job management, staff management, AI-powered resume generation, 9-language multilingual support. From requirements definition to production deployment in 14 months."
-              data-jp="人材紹介会社の業務プラットフォームを一人で設計・開発。求人管理、社員管理、AIによる履歴書生成、9言語対応を実装。要件定義から本番稼働まで14ヶ月で完遂。">
-              Designed and built a complete staffing agency web platform solo — job management, staff management,
-              AI-powered resume generation, 9-language multilingual support. From requirements definition to production
-              deployment in 14 months.
-            </p>
-            <div class="project-tags">
-              <span>PHP</span><span>Laravel</span><span>Claude
-                API</span><span>AWS</span><span>MySQL</span><span>Multi-lang</span>
+
+            <div class="showcase-copy">
+              <div class="project-top">
+                <span class="status-badge status-live">Production</span>
+                <a class="project-link" href="https://github.com/Bikash4JP/itf" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <h3>ITF Web Platform</h3>
+              <p class="project-desc"
+                data-en="Designed and built a complete staffing agency web platform solo — job management, staff management, AI-powered resume generation, 9-language multilingual support. From requirements definition to production deployment in 14 months."
+                data-jp="人材紹介会社の業務プラットフォームを一人で設計・開発。求人管理、社員管理、AIによる履歴書生成、9言語対応を実装。要件定義から本番稼働まで14ヶ月で完遂。">
+                Designed and built a complete staffing agency web platform solo — job management, staff management,
+                AI-powered resume generation, 9-language multilingual support. From requirements definition to
+                production deployment in 14 months.
+              </p>
+              <div class="project-tags">
+                <span>PHP</span><span>Laravel</span><span>Claude
+                  API</span><span>AWS</span><span>MySQL</span><span>Multi-lang</span>
+              </div>
+              <p class="project-highlight">★ <span
+                  data-en="9-language support · Claude API integration · AWS EC2 production"
+                  data-jp="9言語対応 · Claude API連携 · AWS EC2で本番稼働">9-language support · Claude API integration · AWS EC2
+                  production</span></p>
+              <div class="showcase-cta">
+                <a class="btn btn-primary" href="https://it-future.jp/" target="_blank" rel="noopener">
+                  <span data-en="Visit Site" data-jp="サイトを見る">Visit Site</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <p class="project-highlight">★ <span
-                data-en="9-language support · Claude API integration · AWS EC2 production"
-                data-jp="9言語対応 · Claude API連携 · AWS EC2で本番稼働">9-language support · Claude API integration · AWS EC2
-                production</span></p>
-          </article>
+          </div>
 
           <article class="tilt-card project-card" data-cats="ai infra web">
             <div class="project-top">
