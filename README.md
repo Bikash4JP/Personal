@@ -15,13 +15,31 @@ Live: deployed to a private S3 bucket behind CloudFront (HTTPS) via GitHub Actio
 ## Structure
 
 ```
-index.html            single-page site, all sections
+index.html            single-page site, all sections (also holds all SEO metadata + JSON-LD in <head>)
 assets/css/style.css  design system + component styles
 assets/js/three-bg.js Three.js hero particle background
 assets/js/main.js     nav, language toggle, typewriter, tilt effects,
                        scroll reveals, skill bars, project filter, contact form
-assets/imgs/          images
+assets/imgs/          images (avatar.jpg, og-image.jpg = 1200x630 social preview)
+robots.txt            allows all crawlers, points to the sitemap
+sitemap.xml           canonical public URLs (currently just the homepage)
+404.html              self-contained not-found page (noindex); wired up via CloudFront error pages
+favicon.svg/.ico, apple-touch-icon.png   crawlable site icons
+scripts/seo-check.mjs SEO regression check (no dependencies)
+docs/                 SEO external-setup guide (not deployed)
 ```
+
+## SEO
+
+- Canonical origin is `https://bikash4jp.com/` (no `www`). Keep `<link rel="canonical">`, `og:url`, `sitemap.xml`,
+  `robots.txt` and the JSON-LD `@id`s on that exact origin.
+- The JSON-LD in `index.html` must only state things that are visible on the page. If you change the copy
+  (job, employer, projects, links), update the JSON-LD, `<title>` and meta description to match.
+- Text in elements with `data-en`/`data-jp` must be **English in the HTML** (JS swaps it for Japanese); the
+  checker fails if the static text and `data-en` differ.
+- Run `node scripts/seo-check.mjs` before pushing, and `node scripts/seo-check.mjs --live` after a deploy.
+- Anything that needs a Google/AWS/Bing account (Search Console, sitemap submission, CloudFront error page,
+  analytics) is in [docs/SEO-EXTERNAL-SETUP.md](docs/SEO-EXTERNAL-SETUP.md).
 
 ## Sections
 

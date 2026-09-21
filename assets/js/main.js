@@ -186,6 +186,7 @@
       }
     };
     if (hasGSAP && typeof ScrollTrigger !== 'undefined' && !prefersReducedMotion) {
+      el.textContent = '0'; // the HTML ships the real value for non-JS readers; count up from 0 here
       ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: run });
     } else {
       const obs = new IntersectionObserver((entries) => {

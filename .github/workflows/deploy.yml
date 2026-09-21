@@ -46,6 +46,8 @@ jobs:
             --exclude ".github/*" \
             --exclude ".vscode/*" \
             --exclude "README.md" \
+            --exclude "docs/*" \
+            --exclude "scripts/*" \
             --exclude "index.html"
 
           aws s3 cp index.html "s3://${{ vars.S3_BUCKET_NAME }}/index.html" \
