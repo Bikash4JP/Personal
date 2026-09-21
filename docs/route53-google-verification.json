@@ -1,0 +1,16 @@
+{
+  "Comment": "Google Search Console domain verification for bikash4jp.com",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "bikash4jp.com.",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+          { "Value": "\"google-site-verification=_yh9fvWaf4Meq0frKYvq22zx2JjBJeB-YE-yyJffWCE\"" }
+        ]
+      }
+    }
+  ]
+}

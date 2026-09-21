@@ -35,9 +35,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <!-- Non-blocking font CSS: the stylesheet was render-blocking (~92 KB). display=swap keeps text visible meanwhile. -->
-  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <!-- Web fonts are requested from the inline script at the end of <body> (after first paint); see the note there. -->
   <noscript>
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -99,13 +97,15 @@
         "knowsLanguage": ["ja", "en", "ne", "hi"],
         "knowsAbout": ["PHP", "Laravel", "TypeScript", "JavaScript", "Node.js", "React Native", "React", "Python",
           "MySQL", "PostgreSQL", "AWS", "Docker", "Prisma", "Claude API", "Gemini API", "Git"],
-        "sameAs": ["https://github.com/Bikash4JP"]
+        "sameAs": ["https://github.com/Bikash4JP", "https://www.linkedin.com/in/bikash4jp"]
       },
       {
-        "@type": "CreativeWork",
+        "@type": "SoftwareSourceCode",
         "@id": "https://bikash4jp.com/#showcase-mobiledger",
         "name": "MobiLedger",
         "url": "https://bikash4jp.com/#showcase-mobiledger",
+        "codeRepository": "https://github.com/Bikash4JP/ledger",
+        "programmingLanguage": "TypeScript",
         "description": "Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping, automatic P&L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support.",
         "keywords": "React Native, TypeScript, Node.js, PostgreSQL, Expo",
         "creator": { "@id": "https://bikash4jp.com/#person" }
@@ -115,8 +115,8 @@
         "@id": "https://bikash4jp.com/#showcase-itf",
         "name": "ITF Web Platform",
         "url": "https://it-future.jp/",
-        "description": "Staffing agency web platform designed and built solo: job management, staff management, AI-powered resume generation, 9-language multilingual support. From requirements definition to production deployment in 14 months.",
-        "keywords": "PHP, Laravel, Claude API, AWS, MySQL",
+        "description": "Staffing agency web platform designed and built solo: job management, staff management, AI-powered resume generation, 10-language multilingual support. From requirements definition to production deployment in 14 months.",
+        "keywords": "PHP, MySQL, JavaScript, Claude API, i18next",
         "creator": { "@id": "https://bikash4jp.com/#person" }
       },
       {
@@ -127,6 +127,17 @@
         "programmingLanguage": "TypeScript",
         "description": "Engineer productivity hub that collects messages from Slack, LINE, and Gmail, summarizes them daily using AI, generates PDF reports, and delivers push notifications. In development.",
         "keywords": "Node.js, TypeScript, OAuth2.0, Gemini AI, Docker, AWS",
+        "creator": { "@id": "https://bikash4jp.com/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://bikash4jp.com/#project-vaultpass",
+        "name": "VaultPass",
+        "codeRepository": "https://github.com/Bikash4JP/vaultpass",
+        "creativeWorkStatus": "Planning",
+        "description": "Open-source, zero-knowledge password manager planned for iOS, Android and web. Currently in the research and design phase (pre-alpha, no application code yet).",
+        "keywords": "React Native, TypeScript, Node.js, PostgreSQL, AES-256-GCM, Argon2id",
+        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
         "creator": { "@id": "https://bikash4jp.com/#person" }
       },
       {
@@ -429,7 +440,8 @@
             <div class="showcase-copy">
               <div class="project-top">
                 <span class="status-badge status-live">Released</span>
-                <a class="project-link" href="https://github.com/Bikash4JP" target="_blank" rel="noopener">GitHub ↗</a>
+                <a class="project-link" href="https://github.com/Bikash4JP/ledger" target="_blank"
+                  rel="noopener">GitHub ↗</a>
               </div>
               <h3>MobiLedger</h3>
               <p class="project-desc"
@@ -438,6 +450,31 @@
                 Bilingual (EN/JP) personal accounting app for iOS and Android. Features double-entry bookkeeping,
                 automatic P&amp;L / Balance Sheet / Trial Balance generation, PDF export, multi-currency support.
               </p>
+              <dl class="project-facts">
+                <div>
+                  <dt data-en="Problem" data-jp="課題">Problem</dt>
+                  <dd
+                    data-en="Small proprietors and individuals need proper double-entry books they can keep on a phone, with accounting terms in both English and Japanese."
+                    data-jp="個人事業主や個人が、英語・日本語の会計用語で、スマートフォンから複式簿記の帳簿をつけられるようにする。">
+                    Small proprietors and individuals need proper double-entry books they can keep on a phone, with
+                    accounting terms in both English and Japanese.</dd>
+                </div>
+                <div>
+                  <dt data-en="My role" data-jp="担当">My role</dt>
+                  <dd data-en="Solo full-stack developer: mobile app, backend API and the Android release build."
+                    data-jp="個人でフルスタック開発（モバイルアプリ、バックエンドAPI、Android版リリースビルド）。">Solo full-stack
+                    developer: mobile app, backend API and the Android release build.</dd>
+                </div>
+                <div>
+                  <dt data-en="Approach" data-jp="実装">Approach</dt>
+                  <dd
+                    data-en="Reports are computed live from the entries rather than stored. 56 built-in ledgers with 60+ English–Japanese account names, PDF ledger statements, and a demo mode that works without a backend. Dates are parsed as strings to avoid timezone drift on phones."
+                    data-jp="各種レポートは保存せず、入力データからリアルタイムに算出。標準勘定科目56件（日英60語以上の名称辞書）、PDF元帳出力、バックエンド不要のデモモードを実装。日付は文字列で処理し、端末のタイムゾーンによるズレを回避。">
+                    Reports are computed live from the entries rather than stored. 56 built-in ledgers with 60+
+                    English–Japanese account names, PDF ledger statements, and a demo mode that works without a
+                    backend. Dates are parsed as strings to avoid timezone drift on phones.</dd>
+                </div>
+              </dl>
               <div class="project-tags">
                 <span>React
                   Native</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Expo</span>
@@ -486,20 +523,45 @@
               </div>
               <h3>ITF Web Platform</h3>
               <p class="project-desc"
-                data-en="Designed and built a complete staffing agency web platform solo — job management, staff management, AI-powered resume generation, 9-language multilingual support. From requirements definition to production deployment in 14 months."
-                data-jp="人材紹介会社の業務プラットフォームを一人で設計・開発。求人管理、社員管理、AIによる履歴書生成、9言語対応を実装。要件定義から本番稼働まで14ヶ月で完遂。">
+                data-en="Designed and built a complete staffing agency web platform solo — job management, staff management, AI-powered resume generation, 10-language multilingual support. From requirements definition to production deployment in 14 months."
+                data-jp="人材紹介会社の業務プラットフォームを一人で設計・開発。求人管理、社員管理、AIによる履歴書生成、10言語対応を実装。要件定義から本番稼働まで14ヶ月で完遂。">
                 Designed and built a complete staffing agency web platform solo — job management, staff management,
-                AI-powered resume generation, 9-language multilingual support. From requirements definition to
+                AI-powered resume generation, 10-language multilingual support. From requirements definition to
                 production deployment in 14 months.
               </p>
+              <dl class="project-facts">
+                <div>
+                  <dt data-en="Problem" data-jp="課題">Problem</dt>
+                  <dd
+                    data-en="Foreign job seekers found Japanese resumes hard to write, recruiters handled paperwork by hand, and information was locked behind language barriers."
+                    data-jp="外国人求職者にとって日本語の履歴書作成が難しく、採用側の書類管理も手作業で、言語の壁による情報格差もあった。">
+                    Foreign job seekers found Japanese resumes hard to write, recruiters handled paperwork by hand, and
+                    information was locked behind language barriers.</dd>
+                </div>
+                <div>
+                  <dt data-en="My role" data-jp="担当">My role</dt>
+                  <dd data-en="Sole developer: planning, design, implementation, infrastructure, SEO and security."
+                    data-jp="単独開発（企画・設計・実装・インフラ・SEO・セキュリティ）。">Sole developer: planning, design,
+                    implementation, infrastructure, SEO and security.</dd>
+                </div>
+                <div>
+                  <dt data-en="Approach" data-jp="実装">Approach</dt>
+                  <dd
+                    data-en="PHP 8 + MySQL backend with a staff CMS, and a resume builder that exports PDF and Excel with Claude-drafted Japanese text. i18next translations in 10 languages. Forms use CSRF tokens, a honeypot and rate limiting; when the host's firewall blocked a third-party form service, I built an SPF-aligned PHP mailer instead."
+                    data-jp="PHP 8とMySQLで構築し、スタッフ用CMSと、PDF/Excel出力・Claudeによる日本語文案生成つきの履歴書作成機能を実装。i18nextで10言語に対応。フォームはCSRFトークン・ハニーポット・レート制限で保護。サーバーのWAFが外部フォームサービスを遮断したため、SPFに対応した自社PHPメーラーに置き換えた。">
+                    PHP 8 + MySQL backend with a staff CMS, and a resume builder that exports PDF and Excel with
+                    Claude-drafted Japanese text. i18next translations in 10 languages. Forms use CSRF tokens, a
+                    honeypot and rate limiting; when the host's firewall blocked a third-party form service, I built an
+                    SPF-aligned PHP mailer instead.</dd>
+                </div>
+              </dl>
               <div class="project-tags">
-                <span>PHP</span><span>Laravel</span><span>Claude
-                  API</span><span>AWS</span><span>MySQL</span><span>Multi-lang</span>
+                <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Claude API</span><span>i18next</span>
               </div>
               <p class="project-highlight">★ <span
-                  data-en="9-language support · Claude API integration · AWS EC2 production"
-                  data-jp="9言語対応 · Claude API連携 · AWS EC2で本番稼働">9-language support · Claude API integration · AWS EC2
-                  production</span></p>
+                  data-en="10 languages · Claude API resume drafting · Sole developer, end to end"
+                  data-jp="10言語対応 · Claude APIによる履歴書文案生成 · 企画から運用まで単独担当">10 languages · Claude API resume drafting ·
+                  Sole developer, end to end</span></p>
               <div class="showcase-cta">
                 <a class="btn btn-primary" href="https://it-future.jp/" target="_blank" rel="noopener">
                   <span data-en="Visit Site" data-jp="サイトを見る">Visit Site</span>
@@ -526,6 +588,31 @@
               them daily using AI, generates PDF reports, and delivers push notifications. Full CI/CD pipeline, deployed
               to AWS EC2.
             </p>
+            <dl class="project-facts">
+              <div>
+                <dt data-en="Problem" data-jp="課題">Problem</dt>
+                <dd data-en="Work messages are spread across Slack, LINE and Gmail, so an engineer has no single daily overview."
+                  data-jp="仕事のメッセージがSlack・LINE・Gmailに分散しており、1日の全体像を一度に把握できない。">Work messages are spread
+                  across Slack, LINE and Gmail, so an engineer has no single daily overview.</dd>
+              </div>
+              <div>
+                <dt data-en="My role" data-jp="担当">My role</dt>
+                <dd
+                  data-en="Solo full-stack developer: Express and Prisma backend, React Native (Expo) app, Docker and AWS EC2 deployment."
+                  data-jp="個人でフルスタック開発（Express/Prismaバックエンド、React Native（Expo）アプリ、DockerとAWS EC2へのデプロイ）。">
+                  Solo full-stack developer: Express and Prisma backend, React Native (Expo) app, Docker and AWS EC2
+                  deployment.</dd>
+              </div>
+              <div>
+                <dt data-en="Approach" data-jp="実装">Approach</dt>
+                <dd
+                  data-en="OAuth 2.0 for Slack and Gmail, a LINE webhook, scheduled Gemini summaries with a rule-based fallback so a Gemini outage doesn't break the daily summary, and OAuth tokens stored encrypted with AES-256-GCM. GitHub Actions builds and deploys to EC2 on every push."
+                  data-jp="SlackとGmailはOAuth 2.0、LINEはWebhookで連携。AI要約はGeminiで生成し、障害時はルールベースにフォールバック。OAuthトークンはAES-256-GCMで暗号化して保存。GitHub Actionsでビルドし、pushのたびにEC2へ自動デプロイ。">
+                  OAuth 2.0 for Slack and Gmail, a LINE webhook, scheduled Gemini summaries with a rule-based fallback
+                  so a Gemini outage doesn't break the daily summary, and OAuth tokens stored encrypted with
+                  AES-256-GCM. GitHub Actions builds and deploys to EC2 on every push.</dd>
+              </div>
+            </dl>
             <div class="project-tags">
               <span>Node.js</span><span>TypeScript</span><span>OAuth2.0</span><span>Gemini
                 AI</span><span>Docker</span><span>AWS</span>
@@ -534,8 +621,56 @@
                 data-en="OAuth2.0 · AES-256-GCM encryption · Gemini AI · GitHub Actions CI/CD"
                 data-jp="OAuth2.0 · AES-256-GCM暗号化 · Gemini AI · GitHub Actions CI/CD">OAuth2.0 · AES-256-GCM encryption
                 · Gemini AI · GitHub Actions CI/CD</span></p>
-            <p class="project-live">🔴 <span data-en="Live at" data-jp="稼働中：">Live at</span> <a
-                href="https://api.bikash4jp.com" target="_blank" rel="noopener">api.bikash4jp.com</a></p>
+          </article>
+
+          <article class="tilt-card project-card" id="project-vaultpass" data-cats="mobile web">
+            <div class="project-top">
+              <span class="status-badge status-target" data-en="Planning" data-jp="企画・設計中">Planning</span>
+              <a class="project-link" href="https://github.com/Bikash4JP/vaultpass" target="_blank"
+                rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>VaultPass</h3>
+            <p class="project-desc"
+              data-en="Open-source, zero-knowledge password manager planned for iOS, Android and web. The design keeps the server to ciphertext only: encryption and decryption happen on the user's device. Currently in the research and design phase."
+              data-jp="iOS・Android・Web向けに計画中のオープンソース、ゼロ知識型パスワードマネージャー。サーバーには暗号文のみを保存し、暗号化・復号はユーザーの端末上で行う設計です。現在は調査・設計段階です。">
+              Open-source, zero-knowledge password manager planned for iOS, Android and web. The design keeps the server
+              to ciphertext only: encryption and decryption happen on the user's device. Currently in the research and
+              design phase.
+            </p>
+            <dl class="project-facts">
+              <div>
+                <dt data-en="Problem" data-jp="課題">Problem</dt>
+                <dd
+                  data-en="Breaches of cloud password managers show the risk of servers that can read, or hold decryptable, vault data. The aim is an open, verifiable alternative with first-class Japanese support."
+                  data-jp="クラウド型パスワードマネージャーの情報漏えいは、サーバーが保管庫の内容を読める、または復号可能な形で保持するリスクを示している。検証可能なオープンソースで、日本語にも最優先で対応する代替を目指す。">
+                  Breaches of cloud password managers show the risk of servers that can read, or hold decryptable,
+                  vault data. The aim is an open, verifiable alternative with first-class Japanese support.</dd>
+              </div>
+              <div>
+                <dt data-en="My role" data-jp="担当">My role</dt>
+                <dd
+                  data-en="Solo: product definition, architecture, engineering and security rules, repository and infrastructure setup."
+                  data-jp="単独で担当（プロダクト定義、アーキテクチャ設計、開発・セキュリティ規約の策定、リポジトリとインフラの準備）。">Solo:
+                  product definition, architecture, engineering and security rules, repository and infrastructure
+                  setup.</dd>
+              </div>
+              <div>
+                <dt data-en="Status" data-jp="現状">Status</dt>
+                <dd
+                  data-en="Pre-alpha, no application code yet. Done so far: a Japanese design-document set (requirements, basic and detailed design, database, API, infrastructure, test and operations) and a PostgreSQL environment in Docker Compose. Planned stack: React Native + Expo, Node.js + Express, PostgreSQL + Prisma, Argon2id key derivation, AES-256-GCM."
+                  data-jp="プレアルファ段階で、アプリのコードはまだありません。これまでに、日本語の設計書一式（要件定義・基本設計・詳細設計・DB設計・API仕様・インフラ設計・テスト仕様・運用手順）と、Docker ComposeによるPostgreSQL環境を整備。想定スタック：React Native + Expo、Node.js + Express、PostgreSQL + Prisma、Argon2id鍵導出、AES-256-GCM。">
+                  Pre-alpha, no application code yet. Done so far: a Japanese design-document set (requirements, basic
+                  and detailed design, database, API, infrastructure, test and operations) and a PostgreSQL environment
+                  in Docker Compose. Planned stack: React Native + Expo, Node.js + Express, PostgreSQL + Prisma,
+                  Argon2id key derivation, AES-256-GCM.</dd>
+              </div>
+            </dl>
+            <div class="project-tags">
+              <span>React Native</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span>
+            </div>
+            <p class="project-highlight">★ <span data-en="Pre-alpha · zero-knowledge design · AGPL-3.0 open source"
+                data-jp="プレアルファ · ゼロ知識設計 · AGPL-3.0オープンソース">Pre-alpha · zero-knowledge design · AGPL-3.0 open
+                source</span></p>
           </article>
 
           <article class="tilt-card project-card" id="project-image-recognition" data-cats="ai">
@@ -756,16 +891,46 @@
       <div class="footer-links">
         <a href="https://github.com/Bikash4JP" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:bikash4jp@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/bikash4jp" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/three-bg.js?v=__BUILD__"></script>
-  <script src="assets/js/main.js?v=__BUILD__"></script>
+  <!-- The animation stack (~1.4 s of script CPU) is injected after the first frame so it cannot delay the first
+       paint / LCP. Execution order is preserved (async = false). Deliberately NOT preloaded: preloads compete with
+       the critical CSS for bandwidth (measured: FCP 1.2 s -> 2.5 s in Lighthouse). Without JS none of it is
+       needed (see the <noscript> block in <head>). -->
+  <script>
+    (function () {
+      var files = [
+        'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
+        'assets/js/three-bg.js?v=__BUILD__',
+        'assets/js/main.js?v=__BUILD__'
+      ];
+      function inject() {
+        var f = document.createElement('link');
+        f.rel = 'stylesheet';
+        f.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap';
+        document.head.appendChild(f);
+        files.forEach(function (src) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.async = false;
+          document.body.appendChild(s);
+        });
+      }
+      // Failsafe: main.js normally hides the loader. If a CDN is blocked or a script fails, never trap the page behind it.
+      setTimeout(function () {
+        var l = document.getElementById('loader');
+        if (l) l.classList.add('hidden');
+      }, 8000);
+      // Wait until the browser is idle after the first paint (500 ms cap so slow devices still get the effects).
+      if ('requestIdleCallback' in window) requestIdleCallback(inject, { timeout: 500 });
+      else setTimeout(inject, 200);
+    })();
+  </script>
 </body>
 
 </html>

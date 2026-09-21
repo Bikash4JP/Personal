@@ -272,6 +272,19 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
   opacity:1; transform:none;
   transition:opacity .8s var(--ease), transform .8s var(--ease);
 }
+/* Hero entrance is pure CSS and never starts at opacity 0. It used to wait for the Three.js/GSAP CDN
+   scripts + main.js to add `.in`, which held the hero text (the LCP element) invisible for seconds on
+   slow connections. Now the text is paintable in the first frame and only slides up. */
+@keyframes heroRise{
+  from{ transform:translateY(28px); }
+  to{ transform:none; }
+}
+.hero-content .reveal-up{ opacity:1; animation:heroRise .8s var(--ease) both; }
+.hero-content .reveal-up:nth-child(1){ animation-delay:.05s; }
+.hero-content .reveal-up:nth-child(2){ animation-delay:.15s; }
+.hero-content .reveal-up:nth-child(3){ animation-delay:.25s; }
+.hero-content .reveal-up:nth-child(4){ animation-delay:.35s; }
+.hero-content .reveal-up:nth-child(5){ animation-delay:.45s; }
 .hero-content .reveal-up:nth-child(1){ transition-delay:.05s; }
 .hero-content .reveal-up:nth-child(2){ transition-delay:.15s; }
 .hero-content .reveal-up:nth-child(3){ transition-delay:.25s; }
@@ -455,6 +468,16 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
 }
 .project-card:hover .project-tags span{ border-color:var(--glass-border-hi); color:var(--text-primary); }
 .project-highlight{ font-size:13px; color:var(--accent); }
+.project-facts{ margin:0; display:grid; gap:10px; }
+.project-facts > div{ display:grid; grid-template-columns:78px 1fr; gap:12px; align-items:baseline; }
+.project-facts dt{
+  margin:0; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--text-primary);
+}
+.project-facts dd{ margin:0; font-size:13.5px; line-height:1.55; color:var(--text-secondary); }
+@media (max-width:520px){
+  .project-facts > div{ grid-template-columns:1fr; gap:2px; }
+}
 .project-live{ font-size:13px; color:var(--text-secondary); }
 .project-live a{ color:var(--accent); }
 

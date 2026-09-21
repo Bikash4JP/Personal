@@ -9,11 +9,13 @@
   /* ---------------- Loading screen ---------------- */
   const loader = document.getElementById('loader');
   const loadStart = Date.now();
-  window.addEventListener('load', () => {
-    const elapsed = Date.now() - loadStart;
-    const wait = Math.max(0, 700 - elapsed);
+  // This script is injected after first paint, so `load` may already have fired.
+  const hideLoader = () => {
+    const wait = Math.max(0, 700 - (Date.now() - loadStart));
     setTimeout(() => loader && loader.classList.add('hidden'), wait);
-  });
+  };
+  if (document.readyState === 'complete') hideLoader();
+  else window.addEventListener('load', hideLoader);
 
   /* ---------------- Custom cursor glow ---------------- */
   const cursorGlow = document.getElementById('cursorGlow');

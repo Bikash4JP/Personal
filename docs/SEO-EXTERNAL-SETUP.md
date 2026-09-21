@@ -18,27 +18,24 @@ Legend: **[MANDATORY]** needed for the plan to work · **[RECOMMENDED]** worth d
 
 ---
 
-## What the repository already contains (done in code, not yet live)
+## Where things stand (updated 2026-09-21)
 
-These are written and pass local checks, but **nothing is live until you commit, push to `main`, and the
-GitHub Action finishes** (the push triggers a production deploy, so it was intentionally not done for you).
-
-| Done in the repo | Live? |
+| Item | Status |
 | --- | --- |
-| Title, description, canonical, robots meta, Open Graph, Twitter card in `index.html` | after deploy |
-| JSON-LD (WebSite, ProfilePage, Person, 4 project nodes) in `index.html` | after deploy |
-| `robots.txt`, `sitemap.xml` (1 URL) | after deploy |
-| `404.html` (noindex), real favicon files, 1200×630 social image | after deploy |
-| Deploy workflow excludes `docs/` and `scripts/` from S3 | after deploy |
-| `scripts/seo-check.mjs` regression check | local only |
-
-Not done, needs you: everything below.
-
----
+| Round 1: metadata, JSON-LD, `robots.txt`, `sitemap.xml`, `404.html`, icons, social image | **Live.** Committed as `0325e15`, deployed; `node scripts/seo-check.mjs --live` passed against production |
+| Round 2: LCP fix, four project write-ups (from your GitHub repos), VaultPass card, DevPulse "Live at" line removed, LinkedIn link fixed, MobiLedger GitHub link fixed | **In your working folder, not committed yet.** Live only after you commit and push |
+| Google verification TXT record | **Not added yet.** `nslookup -type=TXT bikash4jp.com` shows nothing. Step 2 below |
+| CloudFront 404 page | **Not done** (missing pages still return 403). Step 1 below |
 
 ## Step 0 — Deploy and verify [MANDATORY]
 
-1. Review the changes, then commit and push to `main` (or run the workflow from GitHub → Actions → *Deploy to S3* → *Run workflow*).
+1. Review the round-2 changes (`git diff`), then commit and push to `main`. The push starts the deploy. Example:
+   ```
+   git add -A
+   git commit -m "perf: fix LCP; add project write-ups and VaultPass; fix LinkedIn link"
+   git push
+   ```
+   (or run the workflow from GitHub → Actions → *Deploy to S3* → *Run workflow*).
 2. Wait for the Action to finish (green check).
 3. Run `node scripts/seo-check.mjs --live` in the repo folder.
    - **Success:** homepage, robots.txt, sitemap.xml, icons and og:image return 200. The "missing page" line will say `403` (a WARN, not a failure) until Step 1.
@@ -61,16 +58,27 @@ and shows visitors a proper page.
 ## Step 2 — Google Search Console: add the Domain property [MANDATORY]
 
 Tool: <https://search.google.com/search-console> (sign in with the Google account you want to own this).
+You already have the verification value; it is the one Google showed you:
+
+```
+google-site-verification=_yh9fvWaf4Meq0frKYvq22zx2JjBJeB-YE-yyJffWCE
+```
+
+(If Search Console shows you a *different* value when you add the property, use the one on screen; it must match your account.)
 
 1. Click the property dropdown (top-left) → **Add property**.
-2. Choose the **Domain** panel (left one). Enter `bikash4jp.com` (no `https://`, no `www`). Click **Continue**.
-3. Google shows a TXT record starting with `google-site-verification=`. **That value comes from your Google account — copy it from that dialog; it is not in this repo and must never be guessed.**
-4. Add it in Route 53 (this is your DNS provider):
-   1. <https://console.aws.amazon.com/route53/> → **Hosted zones** → `bikash4jp.com` (if you see two zones with this name, use the one whose NS values match `ns-687.awsdns-21.net` etc.).
-   2. **Create record** → Record name: **leave empty** → Record type: **TXT** → Value: paste the string **wrapped in double quotes**, e.g. `"google-site-verification=abc123..."` → TTL `300` → **Create records**.
+2. Choose the **Domain** panel (left one). Enter `bikash4jp.com` (no `https://`, no `www`). Click **Continue**. Leave the dialog open (or reopen it later from Settings → Ownership verification).
+3. Add the TXT record in Route 53, which is your DNS provider. **Console way (recommended):**
+   1. <https://console.aws.amazon.com/route53/> → **Hosted zones** → click `bikash4jp.com`. If two zones share this name, use the one whose NS values match `ns-687.awsdns-21.net`, `ns-12.awsdns-01.com`, `ns-1210.awsdns-23.org`, `ns-1864.awsdns-41.co.uk`.
+   2. **Create record** → Record name: **leave empty** → Record type: **TXT** → Value: `"google-site-verification=_yh9fvWaf4Meq0frKYvq22zx2JjBJeB-YE-yyJffWCE"` **including the double quotes** → TTL `300` → Routing policy: Simple → **Create records**.
+   3. **Alternative (AWS CLI, if you install and configure it):** find the zone id with `aws route53 list-hosted-zones-by-name --dns-name bikash4jp.com`, then
+      `aws route53 change-resource-record-sets --hosted-zone-id <ZONE_ID> --change-batch file://docs/route53-google-verification.json`.
+      That file uses `UPSERT`, which **replaces** any existing TXT record set at the root. Today there is none (checked 2026-09-21), but if you later add
+      another root TXT value (e.g. an SPF record), put both values in the *same* record set.
+4. Wait 2–5 minutes, then check it is visible: `nslookup -type=TXT bikash4jp.com 8.8.8.8` should list the `google-site-verification=...` string.
 5. Back in Search Console click **Verify**.
    - **Success:** "Ownership verified".
-   - **Errors:** "Couldn't find the TXT record" → wait 5–10 minutes and retry; check for stray spaces/missing quotes; make sure it was added at the root (empty name), not `www`.
+   - **Errors:** "Couldn't find the TXT record" → wait 5–10 minutes and retry; check for stray spaces or missing quotes; make sure the record name is empty (root), not `www`, and that it is in the zone whose NS values match the list above.
 6. Leave the TXT record in place permanently. Removing it un-verifies you.
 
 A Domain property covers `http/https` and all subdomains, so a separate URL-prefix property is **not needed**.
@@ -103,10 +111,12 @@ These are web tools; they were **not run** by Claude, so treat the JSON-LD as lo
 - **PageSpeed Insights:** <https://pagespeed.web.dev/> → same URL → Analyze, for **Mobile** and **Desktop**.
   A new site will show "No data" for real-user (CrUX) field data. Only lab data (Lighthouse) is available at first.
   Don't chase a score; look at the specific LCP, CLS and INP items it flags.
-  For reference, Claude's own **lab** run (Lighthouse 13.5, mobile, simulated throttling, against a *local* copy, 2026-09-21) gave
-  SEO 100 · Best Practices 100 · Accessibility 96 · Performance 78–79, FCP 1.2 s, **LCP ≈ 5.4 s (not good; target ≤ 2.5 s)**, TBT ≈ 115 ms, CLS 0.009.
-  The LCP element is the hero paragraph, which stays at opacity 0 until `main.js` runs, and that waits for the Three.js + GSAP CDN scripts
-  and the loader. Fixing it means changing the hero entrance animation, which is a design decision, so it was left alone.
+  For reference, Claude's own **lab** runs (Lighthouse 13.5, mobile profile, simulated slow-4G/4x-CPU throttling, against a *local* copy, 2026-09-21):
+  before the LCP fix (`0325e15`) → LCP 5.4-5.5 s, performance 77-78; after → LCP 2.0-3.3 s (varies run to run), FCP 1.2 s, CLS 0.01-0.02,
+  performance 91-98. Measured without throttling, the first paint (which is now also the LCP) happens at about 0.27 s, versus 1.6 s before.
+  The lab figures are a model, not real users. Google's "good" line is LCP ≤ 2.5 s, so the lab result straddles it.
+  What changed: the hero text no longer waits for the animation scripts, which (Three.js, GSAP, ScrollTrigger, `main.js`) and the
+  Google Fonts stylesheet are now loaded after first paint.
   Real-user Core Web Vitals have **not** been measured.
 
 ## Step 6 — Bing Webmaster Tools [OPTIONAL]
@@ -136,12 +146,13 @@ Nothing is installed today and nothing was added, because a measurement ID has t
 5. Optional: Admin → **Product links → Search Console links** to see search queries inside GA4.
 6. **Privacy:** the tag sets cookies. You are in Japan (APPI applies to personal data handling); if visitors from the EU/UK are an intended audience, you need a consent banner and Consent Mode before loading the tag. Add a short privacy note either way. The contact form sends submissions to Web3Forms, and Google Fonts loads from Google; both are third-party data flows worth mentioning in that note.
 
-## Step 8 — Fix content that hurts trust and SEO [RECOMMENDED]
+## Step 8 — Check the links you changed [RECOMMENDED]
 
-These are on the live page and only you can fix them (details in the report's content questions):
-
-- `api.bikash4jp.com` (DevPulse "Live at") **does not resolve in DNS** — dead link. Either create the Route 53 record or remove the line.
-- Footer "LinkedIn" links to `https://www.linkedin.com/` (the homepage). Give me the profile URL to use it (and add it to `sameAs`), or remove it.
+- **LinkedIn:** the footer and the structured data now use `https://www.linkedin.com/in/bikash4jp`. LinkedIn blocks automated checks (it returns a
+  fake `999` error), so Claude could not verify it. Open it in your browser while logged out to confirm it is a public profile.
+- **DevPulse:** the dead `api.bikash4jp.com` line was removed. Note that `devpulse.bikash4jp.com` *does* resolve, so if you want a live
+  link on that card you can add one, but it is an API host and may not show a page.
+- **MobiLedger** now links to `https://github.com/Bikash4JP/ledger` instead of your profile page.
 
 ## Step 9 — `www` and `/index.html` [OPTIONAL]
 
