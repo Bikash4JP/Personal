@@ -507,6 +507,25 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
 .timeline-card h3{ font-size:19px; margin:8px 0 2px; }
 .timeline-role{ font-size:13.5px; color:var(--text-tertiary); margin-bottom:12px; }
 .timeline-desc{ color:var(--text-secondary); font-size:14px; margin-bottom:16px; }
+.timeline-intro{
+  max-width:720px; margin:0 auto 64px; text-align:center;
+  color:var(--text-secondary); font-size:15.5px; line-height:1.75;
+}
+.timeline-theme{
+  display:block; margin-top:6px; font-family:var(--font-mono); font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--text-tertiary);
+}
+.timeline-takeaway{
+  margin-bottom:16px; padding-left:12px; border-left:2px solid var(--accent);
+  font-size:13.5px; font-style:italic; color:var(--text-primary);
+}
+.timeline-item:nth-child(odd) .timeline-takeaway{
+  padding-left:0; padding-right:12px; border-left:0; border-right:2px solid var(--accent);
+}
+.takeaway-label{
+  display:block; margin-bottom:2px; font-family:var(--font-mono); font-size:11px;
+  font-style:normal; letter-spacing:.06em; text-transform:uppercase; color:var(--accent);
+}
 .timeline-skills{ display:flex; flex-wrap:wrap; gap:8px; }
 .timeline-item:nth-child(odd) .timeline-skills{ justify-content:flex-end; }
 .timeline-skills span{
@@ -605,6 +624,10 @@ html[data-lang="jp"] .hero-pitch{ font-family:var(--font-body),'Noto Sans JP',sa
   .timeline-item:nth-child(odd) .timeline-dot,
   .timeline-item:nth-child(even) .timeline-dot{ left:7px; right:auto; }
   .timeline-item:nth-child(odd) .timeline-skills{ justify-content:flex-start; }
+  .timeline-item:nth-child(odd) .timeline-takeaway{
+    padding-left:12px; padding-right:0; border-left:2px solid var(--accent); border-right:0;
+  }
+  .timeline-intro{ margin-bottom:48px; }
   .cert-grid{ grid-template-columns:1fr 1fr; }
   .stats-grid{ grid-template-columns:1fr 1fr; }
   .hero-cta{ flex-direction:column; align-items:stretch; }
