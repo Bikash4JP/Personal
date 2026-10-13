@@ -130,6 +130,17 @@
       },
       {
         "@type": "SoftwareSourceCode",
+        "@id": "https://bikash4jp.com/#project-hinan-map",
+        "name": "Hinan Map",
+        "url": "https://bikash4jp.com/projects/hinan-map/index.html",
+        "codeRepository": "https://github.com/Bikash4JP/hinan-map",
+        "programmingLanguage": "TypeScript",
+        "description": "Bilingual WebGIS for finding the nearest designated emergency evacuation site in Japan by hazard type. 115,872 sites from the Geospatial Information Authority of Japan in PostGIS, a Hono API and MapLibre GL JS.",
+        "keywords": "TypeScript, PostGIS, Hono, MapLibre GL JS, React, AWS Lambda",
+        "creator": { "@id": "https://bikash4jp.com/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
         "@id": "https://bikash4jp.com/#project-devpulse",
         "name": "DevPulse",
         "codeRepository": "https://github.com/Bikash4JP/devpulse-engineer-assistant",
@@ -583,6 +594,67 @@
               </div>
             </div>
           </div>
+
+          <article class="tilt-card project-card" id="project-hinan-map" data-cats="web infra">
+            <div class="project-top">
+              <span class="status-badge status-live" data-en="Live Demo" data-jp="デモ公開中">Live Demo</span>
+              <a class="project-link" href="https://github.com/Bikash4JP/hinan-map" target="_blank"
+                rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>Hinan Map</h3>
+            <p class="project-desc"
+              data-en="Bilingual WebGIS that helps foreign residents in Japan find the nearest designated emergency evacuation site for a given hazard. 115,872 sites from the Geospatial Information Authority of Japan are stored in PostGIS, served by a Hono API and drawn with MapLibre GL JS."
+              data-jp="在日外国人が、災害の種類ごとに最寄りの指定緊急避難場所を探せる日英対応のWebGIS。国土地理院の全国115,872件のデータをPostGISに格納し、HonoのAPIとMapLibre GL JSで地図に表示。">
+              Bilingual WebGIS that helps foreign residents in Japan find the nearest designated emergency evacuation
+              site for a given hazard. 115,872 sites from the Geospatial Information Authority of Japan are stored in
+              PostGIS, served by a Hono API and drawn with MapLibre GL JS.
+            </p>
+            <dl class="project-facts">
+              <div>
+                <dt data-en="Problem" data-jp="課題">Problem</dt>
+                <dd
+                  data-en="Evacuation-site information is hard to reach for people who cannot read Japanese, and a site that is safe in a flood is not necessarily safe in a tsunami."
+                  data-jp="日本語が読めない人には避難場所の情報が届きにくく、また洪水では安全な場所が津波でも安全とは限らない。">Evacuation-site
+                  information is hard to reach for people who cannot read Japanese, and a site that is safe in a flood
+                  is not necessarily safe in a tsunami.</dd>
+              </div>
+              <div>
+                <dt data-en="My role" data-jp="担当">My role</dt>
+                <dd
+                  data-en="Personal project: data research, schema and API design, front end, tests and serverless deployment."
+                  data-jp="個人開発。データ調査、スキーマ・API設計、フロントエンド、テスト、サーバーレス構成でのデプロイまで担当。">
+                  Personal project: data research, schema and API design, front end, tests and serverless
+                  deployment.</dd>
+              </div>
+              <div>
+                <dt data-en="Approach" data-jp="実装">Approach</dt>
+                <dd
+                  data-en="GEOGRAPHY(Point, 4326) with a GiST index: bounding-box queries for the map view and index-ordered k-NN for the five nearest sites, with distances in metres. Streamed CSV import with batch upserts. Runs without a permanent server: S3 + CloudFront, the API on AWS Lambda, PostGIS on Neon. Site names stay in Japanese so they match street signs."
+                  data-jp="GEOGRAPHY(Point, 4326)型とGiSTインデックスで、表示範囲のBBOX検索と、最寄り5件のk-NN検索（メートル距離つき）を実装。CSVはストリーム処理とバッチUPSERTで取り込み。常時稼働のサーバーを持たず、S3 + CloudFront、AWS Lambda（API）、Neon（PostGIS）で公開。避難場所名は現地の看板と照合できるよう日本語のまま表示。">
+                  GEOGRAPHY(Point, 4326) with a GiST index: bounding-box queries for the map view and index-ordered
+                  k-NN for the five nearest sites, with distances in metres. Streamed CSV import with batch upserts.
+                  Runs without a permanent server: S3 + CloudFront, the API on AWS Lambda, PostGIS on Neon. Site names
+                  stay in Japanese so they match street signs.</dd>
+              </div>
+            </dl>
+            <div class="project-tags">
+              <span>TypeScript</span><span>PostGIS</span><span>Hono</span><span>MapLibre GL
+                JS</span><span>React</span><span>AWS Lambda</span>
+            </div>
+            <p class="project-highlight">★ <span
+                data-en="115,872 sites · PostGIS k-NN search · GSI open data · Serverless on AWS"
+                data-jp="全国115,872件 · PostGIS k-NN検索 · 国土地理院オープンデータ · AWSサーバーレス構成">115,872 sites · PostGIS k-NN
+                search · GSI open data · Serverless on AWS</span></p>
+            <div class="showcase-cta">
+              <a class="btn btn-primary" href="/projects/hinan-map/index.html" target="_blank" rel="noopener">
+                <span data-en="Open Live Demo" data-jp="デモを開く">Open Live Demo</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
 
           <article class="tilt-card project-card" id="project-devpulse" data-cats="ai infra web">
             <div class="project-top">
